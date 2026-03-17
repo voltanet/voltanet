@@ -6,17 +6,17 @@ node_modules*
 .next
 .turbo
 .env*.local
+*.bak
 data
 
 # local builds
 dist
 standalone
 out
-web-old
 
 # lock files
 package-lock.json
-bun.lockb
+# bun.lock*
 pnpm-lock.yaml
 yarn.lock
 
