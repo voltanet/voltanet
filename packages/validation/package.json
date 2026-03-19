@@ -1,0 +1,10 @@
+{
+  "name": "@repo/validation",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "format": "biome format --write",
+    "lint": "biome lint --write",
+    "check": "tsgo --noEmit"
+  }
+}

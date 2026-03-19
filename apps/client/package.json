@@ -1,0 +1,14 @@
+{
+  "name": "@repo/client",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "format": "biome format --write",
+    "lint": "biome check --write",
+    "check": "tsgo --noEmit"
+  },
+  "devDependencies": {
+    "@repo/shared": "workspace:*",
+    "@repo/validation": "workspace:*"
+  }
+}

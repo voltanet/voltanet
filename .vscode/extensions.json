@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "dsznajder.es7-react-js-snippets",
+    "yoavbls.pretty-ts-errors",
+    "biomejs.biome",
+    "mrmlnc.vscode-scss",
+    "antfu.iconify"
+  ]
+}

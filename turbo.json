@@ -1,0 +1,17 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "globalEnv": ["NODE_ENV", "HOSTNAME", "PORT"],
+  "tasks": {
+    "dev": { "cache": false, "persistent": true },
+    "build": { "dependsOn": ["^build"] },
+    "start": { "persistent": true },
+    "db:seed": { "dependsOn": ["^db:seed"] },
+    "db:generate": { "dependsOn": ["^db:generate"] },
+    "db:migrate": { "dependsOn": ["^db:migrate"] },
+    "db:studio": { "dependsOn": ["^db:studio"] },
+    "format": { "dependsOn": ["^format"] },
+    "check": { "dependsOn": ["^check"] },
+    "lint": { "dependsOn": ["^lint"] }
+  }
+}
