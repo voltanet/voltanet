@@ -3,12 +3,23 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "db:seed": "bun -b ./scripts/db-seed.ts",
+    "db:generate": "bunx -b drizzle-kit generate",
+    "db:migrate": "bunx -b drizzle-kit migrate",
+    "db:studio": "bunx -b drizzle-kit studio",
     "format": "biome format --write",
     "lint": "biome lint --write",
     "check": "tsgo --noEmit"
   },
+  "exports": {
+    ".": "./database.ts",
+    "./schema": "./schema/index.ts"
+  },
   "devDependencies": {
     "@repo/shared": "workspace:*",
-    "@repo/validation": "workspace:*"
+    "@repo/validation": "workspace:*",
+    "@types/bun": "^1.3.4",
+    "drizzle-kit": "^0.31.5",
+    "drizzle-orm": "^0.45.0"
   }
 }

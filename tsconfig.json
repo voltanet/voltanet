@@ -1,5 +1,5 @@
 {
-  "exclude": ["node_modules", "dist", ".turbo"],
+  "exclude": ["node_modules", "dist", ".turbo", "**/*.bak"],
   "compilerOptions": {
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "target": "ESNext",

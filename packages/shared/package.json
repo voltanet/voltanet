@@ -6,5 +6,11 @@
     "format": "biome format --write",
     "lint": "biome lint --write",
     "check": "tsgo --noEmit"
+  },
+  "exports": {
+    ".": "./index.ts",
+    "./constants": "./constants/index.ts",
+    "./types": "./types/index.ts",
+    "./i18n": "./i18n/index.ts"
   }
 }

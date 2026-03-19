@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["**/*.ts", "**/*.tsx"],
+  "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/shared.tsbuildinfo",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "composite": true,
+    "noEmit": false,
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
