@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "exclude": [".tanstack", "node_modules", "data", "dist"],
+  "include": ["**/*.ts", "**/*.tsx"],
+  "references": [{ "path": "../server" }],
+  "compilerOptions": {
+    "tsBuildInfoFile": "node_modules/client.tsbuildinfo",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
