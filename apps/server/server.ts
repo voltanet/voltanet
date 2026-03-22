@@ -19,7 +19,7 @@ try {
   const { fetch } = new Hono()
     .use(cors()) // Global protection
     .use(logger(isProd ? () => {} : console.log))
-    .use("*", serveStatic({ root: "./client" })) // Serve client if exist
+    .use(serveStatic({ root: "./client" })) // Serve client if exist
     .use("/api/auth/*", (c) => auth.handler(c.req.raw))
     .use("/api/docs/*", router.docs) // API docs routes
     .use("/api/uploads/*", uploads) // Serve uploads
