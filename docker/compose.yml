@@ -7,7 +7,7 @@ services:
     environment:
       # generate with `openssl rand -base64 32`
       - BETTER_AUTH_SECRET=you-should-change-this-secret-key
-      - DATABASE_URL=sqlite://./data/db.sqlite
+      - DATABASE_URL=/app/data/db.sqlite
       - NODE_ENV=production
       - HOSTNAME=0.0.0.0
       - PORT=8000

@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/bun-sqlite";
 import * as schema from "./schema";
 
-const DATABASE_URL = process.env.DATABASE_URL ?? "file:./data/db.sqlite";
+const DATABASE_URL = process.env.DATABASE_URL ?? `${__dirname}/data/db.sqlite`;
 
 export type $DB = typeof db;
 export type $DBTrx = Parameters<Parameters<$DB["transaction"]>[0]>[0];

@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "bun -b --watch ./server.ts",
     "build": "bun -b ./scripts/build.ts",
+    "start": "cd dist && bun -b ./server",
     "compile": "bun -b ./scripts/compile.ts",
     "format": "biome format --write",
-    "lint": "biome check --write",
+    "lint": "biome lint --write",
     "check": "tsgo --noEmit"
   },
   "exports": {

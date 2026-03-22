@@ -5,6 +5,7 @@
     "tsBuildInfoFile": "node_modules/database.tsbuildinfo",
     "declaration": true,
     "emitDeclarationOnly": true,
+    "types": ["bun", "node"],
     "composite": true,
     "noEmit": false,
     "paths": {
