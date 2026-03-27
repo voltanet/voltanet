@@ -11,9 +11,9 @@ export const proxyHost = dz.sqliteTable("proxy_host", {
   ...SharedColumns,
   name: dz.text("name").notNull(),
   enabled: dz.integer("enabled", { mode: "boolean" }).default(true).notNull(),
-  sources: dz.text("sources", { mode: "json" }).$type<string[]>().notNull(),
-  target: dz
-    .text("target", { mode: "json" })
+  domains: dz.text("domains", { mode: "json" }).$type<string[]>().notNull(),
+  destination: dz
+    .text("destination", { mode: "json" })
     .$type<{ protocol: "http" | "https"; hostname: string; port: number }>()
     .notNull(),
   forceHttps: dz.integer("force_https", { mode: "boolean" }).default(false).notNull(),

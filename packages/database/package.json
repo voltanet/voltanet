@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "db:seed": "bun -b ./scripts/db-seed.ts",
+    "db:seed": "NODE_ENV=development bun -b ./scripts/db-seed.ts",
     "db:generate": "bunx -b drizzle-kit generate",
     "db:migrate": "bunx -b drizzle-kit migrate",
     "db:studio": "bunx -b drizzle-kit studio",
