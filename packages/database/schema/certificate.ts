@@ -1,6 +1,6 @@
 import { relations } from "drizzle-orm";
 import * as dz from "drizzle-orm/sqlite-core";
-import { proxyHost } from "./proxyHost";
+import { proxyHost } from "./proxy-host";
 import { SharedColumns } from "./shared";
 
 // ===== Certificate Table =====

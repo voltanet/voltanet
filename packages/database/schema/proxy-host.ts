@@ -1,6 +1,6 @@
 import { relations } from "drizzle-orm";
 import * as dz from "drizzle-orm/sqlite-core";
-import { accessControl } from "./accessControl";
+import { accessControl } from "./access-control";
 import { certificate } from "./certificate";
 import { SharedColumns } from "./shared";
 

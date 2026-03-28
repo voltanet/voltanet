@@ -3,7 +3,7 @@ import { deleteUpstreamRoute } from "./delete-upstream.route";
 import { listUpstreamRoute } from "./list-upstream.route";
 import { updateUpstreamRoute } from "./update-upstream.route";
 
-export const upstreamRouter = {
+export const dnsUpstreamRouter = {
   create: createUpstreamRoute,
   delete: deleteUpstreamRoute,
   list: listUpstreamRoute,

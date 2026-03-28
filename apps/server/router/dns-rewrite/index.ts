@@ -3,7 +3,7 @@ import { deleteRewriteRoute } from "./delete-rewrite.route";
 import { listRewriteRoute } from "./list-rewrite.route";
 import { updateRewriteRoute } from "./update-rewrite.route";
 
-export const rewriteRouter = {
+export const dnsRewriteRouter = {
   create: createRewriteRoute,
   delete: deleteRewriteRoute,
   list: listRewriteRoute,

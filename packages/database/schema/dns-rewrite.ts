@@ -1,6 +1,6 @@
 import { relations } from "drizzle-orm";
 import * as dz from "drizzle-orm/sqlite-core";
-import { dnsUpstream } from "./dnsUpstream";
+import { dnsUpstream } from "./dns-upstream";
 import { SharedColumns } from "./shared";
 
 // ===== DNS Rewrite Table =====
