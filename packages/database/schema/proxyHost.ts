@@ -18,6 +18,11 @@ export const proxyHost = dz.sqliteTable("proxy_host", {
     .notNull(),
   forceHttps: dz.integer("force_https", { mode: "boolean" }).default(false).notNull(),
   websocket: dz.integer("websocket", { mode: "boolean" }).default(false).notNull(),
+  isRedirect: dz.integer("is_redirect", { mode: "boolean" }).default(false).notNull(),
+  redirectCode: dz
+    .text("redirect_code", { enum: ["301", "302", "307", "308"] })
+    .default("301")
+    .notNull(),
   config: dz.text("config"),
   accessControlId: dz
     .text("access_control_id")

@@ -11,7 +11,7 @@ export const dnsRewrite = dz.sqliteTable("dns_rewrite", {
   name: dz.text("name").notNull(),
   enabled: dz.integer("enabled", { mode: "boolean" }).default(true).notNull(),
   domain: dz.text("domain").notNull(),
-  ipAddress: dz.text("ip_address").notNull(),
+  destination: dz.text("destination").notNull(),
   type: dz.text("type", { enum: ["A", "CNAME"] }).notNull(),
   upstreamId: dz.text("upstream_id").references(() => dnsUpstream.id, { onDelete: "set null" }),
 });

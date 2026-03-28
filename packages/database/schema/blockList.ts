@@ -10,7 +10,7 @@ export const blockList = dz.sqliteTable("block_list", {
   enabled: dz.integer("enabled", { mode: "boolean" }).default(true).notNull(),
   type: dz.text("type", { enum: ["text", "url"] }).notNull(),
   value: dz.text("value").notNull(),
-  count: dz.integer("count").notNull(),
+  count: dz.integer("count"),
   lastSyncAt: dz
     .integer("last_sync_at", { mode: "timestamp" })
     .$defaultFn(() => new Date())

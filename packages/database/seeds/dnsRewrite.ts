@@ -7,7 +7,7 @@ const dnsRewrite = seeder(async (trx, dev) => {
       name: "HomeLab DNS",
       enabled: true,
       domain: ".home.local",
-      ipAddress: "192.168.1.100",
+      destination: "192.168.1.100",
       type: "A",
     });
     await trx.insert(schema.dnsRewrite).values({
@@ -15,7 +15,7 @@ const dnsRewrite = seeder(async (trx, dev) => {
       name: "Project DNS",
       enabled: true,
       domain: ".project.local",
-      ipAddress: "192.168.1.100",
+      destination: "192.168.1.100",
       type: "A",
       upstreamId: "00000000-0000-0000-0000-000000000000",
     });

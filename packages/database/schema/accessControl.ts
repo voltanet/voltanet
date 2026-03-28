@@ -15,8 +15,8 @@ export const accessControl = dz.sqliteTable("access_control", {
     .text("satisfy", { enum: ["all", "any"] })
     .default("all")
     .notNull(),
-  basicAuth: dz
-    .text("basic_auth", { mode: "json" })
+  credentials: dz
+    .text("credentials", { mode: "json" })
     .$type<{ username: string; password: string }[]>()
     .default([])
     .notNull(),
