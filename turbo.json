@@ -1,7 +1,8 @@
 {
-  "$schema": "https://turbo.build/schema.json",
+  "$schema": "./node_modules/turbo/schema.json",
   "ui": "tui",
   "globalEnv": ["NODE_ENV", "HOSTNAME", "PORT"],
+  "noUpdateNotifier": true,
   "tasks": {
     "dev": { "cache": false, "persistent": true },
     "build": { "dependsOn": ["^build"] },
