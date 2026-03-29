@@ -8,8 +8,8 @@
     "start": "cd dist && bun -b ./server",
     "compile": "bun -b ./scripts/compile.ts",
     "format": "biome format --write",
-    "lint": "biome lint --write",
-    "check": "tsgo --noEmit"
+    "check": "biome check --write",
+    "type-check": "tsgo --noEmit"
   },
   "exports": {
     "./auth": "./utils/auth.ts",

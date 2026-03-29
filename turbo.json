@@ -13,6 +13,6 @@
     "db:studio": { "dependsOn": ["^db:studio"] },
     "format": { "dependsOn": ["^format"] },
     "check": { "dependsOn": ["^check"] },
-    "lint": { "dependsOn": ["^lint"] }
+    "type-check": { "dependsOn": ["^type-check"] }
   }
 }

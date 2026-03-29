@@ -8,8 +8,8 @@
     "db:migrate": "bunx -b drizzle-kit migrate",
     "db:studio": "bunx -b drizzle-kit studio",
     "format": "biome format --write",
-    "lint": "biome lint --write",
-    "check": "tsgo --noEmit"
+    "check": "biome check --write",
+    "type-check": "tsgo --noEmit"
   },
   "exports": {
     ".": "./database.ts",
