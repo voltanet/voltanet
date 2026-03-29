@@ -2,7 +2,7 @@ import { updateCertificateSchema } from "@repo/validation";
 import { safeRoute } from "@/router/base";
 
 export const updateCertificateRoute = safeRoute
-  .route({ method: "PUT", tags: ["Certificates"] })
+  .route({ method: "PUT", tags: ["Certificates"], path: "/certificate/update" })
   .input(updateCertificateSchema)
   // .errors({})
   .handler(async (c) => {});

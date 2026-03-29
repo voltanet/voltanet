@@ -2,7 +2,7 @@ import { createUpstreamSchema } from "@repo/validation";
 import { safeRoute } from "@/router/base";
 
 export const createUpstreamRoute = safeRoute
-  .route({ method: "POST", tags: ["DNS Upstreams"] })
+  .route({ method: "POST", tags: ["DNS Upstreams"], path: "/dns-upstream/create" })
   .input(createUpstreamSchema)
   // .errors({})
   .handler(async (c) => {});
