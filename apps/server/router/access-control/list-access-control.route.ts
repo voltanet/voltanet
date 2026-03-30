@@ -16,7 +16,7 @@ export const listAccessControlRoute = safeRoute
 
     return result.map(({ credentials, ...rest }) => ({
       // Hide credentials passwords
-      credentials: credentials.map(({ username }) => ({ username, password: "" })),
       ...rest,
+      credentials: credentials.map(({ username }) => ({ username, password: "" })),
     }));
   });

@@ -10,10 +10,12 @@ export const deleteAccessControlRoute = safeRoute
     const { db, schema } = context;
     const where = eq(schema.accessControl.id, input.id);
 
-    const exists = await db.query.accessControl.findFirst({ where });
-    if (!exists) throw errors.NOT_FOUND();
+    return await db.transaction(async (trx) => {
+      const exists = await trx.query.accessControl.findFirst({ where });
+      if (!exists) throw errors.NOT_FOUND();
 
-    await db.delete(schema.accessControl).where(where);
+      await trx.delete(schema.accessControl).where(where);
 
-    return "Access control deleted successfully";
+      return "Access control deleted successfully";
+    });
   });
