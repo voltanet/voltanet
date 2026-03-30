@@ -2,8 +2,12 @@ import { z } from "zod";
 
 export type $PaginationSchema = z.infer<typeof paginationSchema>;
 export const paginationSchema = z.object({
-  page: z.number().min(1, "Page must be at least 1").default(1).meta({ title: "Page Number" }),
-  limit: z
+  page: z.coerce
+    .number()
+    .min(1, "Page must be at least 1")
+    .default(1)
+    .meta({ title: "Page Number" }),
+  limit: z.coerce
     .number()
     .min(1, "Limit must be at least 1")
     .max(100, "Limit must be at most 100")
