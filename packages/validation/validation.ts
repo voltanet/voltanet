@@ -2,6 +2,7 @@ export * from "./schema/access-control";
 export * from "./schema/auth";
 export * from "./schema/block-list";
 export * from "./schema/certificate";
+export * from "./schema/core/list-output";
 export * from "./schema/core/pagination";
 export * from "./schema/dns-rewrite";
 export * from "./schema/dns-upstream";

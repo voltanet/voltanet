@@ -1,10 +1,12 @@
 import { updateUpstreamSchema } from "@repo/validation";
 import { eq } from "drizzle-orm";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
 
 export const updateUpstreamRoute = safeRoute
   .route({ method: "PUT", tags: ["DNS Upstreams"], path: "/dns-upstream/update" })
   .input(updateUpstreamSchema)
+  .output(z.string())
   .errors({ NOT_FOUND: { message: "DNS upstream not found" } })
   .handler(async ({ context, input, errors }) => {
     const { db, schema } = context;

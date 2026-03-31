@@ -1,10 +1,12 @@
 import { updateAccessControlSchema } from "@repo/validation";
 import { eq } from "drizzle-orm";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
 
 export const updateAccessControlRoute = safeRoute
   .route({ method: "PUT", tags: ["Access Control"], path: "/access-control/update" })
   .input(updateAccessControlSchema)
+  .output(z.string())
   .errors({ NOT_FOUND: { message: "Access control not found" } })
   .handler(async ({ context, input, errors }) => {
     const { db, schema } = context;

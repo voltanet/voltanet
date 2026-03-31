@@ -1,11 +1,13 @@
 import { certificateIdSchema } from "@repo/validation";
 import { eq } from "drizzle-orm";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
 import { handleFile } from "@/utils/handle-file";
 
 export const deleteCertificateRoute = safeRoute
   .route({ method: "DELETE", tags: ["Certificates"], path: "/certificate/delete" })
   .input(certificateIdSchema)
+  .output(z.string())
   .errors({ NOT_FOUND: { message: "Certificate not found" } })
   .handler(async ({ context, input, errors }) => {
     const { db, schema } = context;

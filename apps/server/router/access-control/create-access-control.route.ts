@@ -1,9 +1,11 @@
 import { createAccessControlSchema } from "@repo/validation";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
 
 export const createAccessControlRoute = safeRoute
   .route({ method: "POST", tags: ["Access Control"], path: "/access-control/create" })
   .input(createAccessControlSchema)
+  .output(z.string())
   .handler(async ({ context, input }) => {
     const { db, schema } = context;
 

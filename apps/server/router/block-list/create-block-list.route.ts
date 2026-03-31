@@ -1,4 +1,5 @@
 import { createBlockListSchema } from "@repo/validation";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
 import { countBlockList } from "@/utils/count-block-list";
 import { handleFile } from "@/utils/handle-file";
@@ -6,6 +7,7 @@ import { handleFile } from "@/utils/handle-file";
 export const createBlockListRoute = safeRoute
   .route({ method: "POST", tags: ["Block Lists"], path: "/block-list/create" })
   .input(createBlockListSchema)
+  .output(z.string())
   .errors({ UNPROCESSABLE_CONTENT: { message: "Unable to fetch the block list content" } })
   .handler(async ({ context, input, errors }) => {
     const { db, schema } = context;

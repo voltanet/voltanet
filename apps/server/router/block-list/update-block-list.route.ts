@@ -1,5 +1,6 @@
 import { updateBlockListSchema } from "@repo/validation";
 import { eq } from "drizzle-orm";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
 import { countBlockList } from "@/utils/count-block-list";
 import { handleFile } from "@/utils/handle-file";
@@ -7,6 +8,7 @@ import { handleFile } from "@/utils/handle-file";
 export const updateBlockListRoute = safeRoute
   .route({ method: "PUT", tags: ["Block Lists"], path: "/block-list/update" })
   .input(updateBlockListSchema)
+  .output(z.string())
   .errors({
     UNPROCESSABLE_CONTENT: { message: "Unable to fetch the block list content" },
     NOT_FOUND: { message: "Block list not found" },

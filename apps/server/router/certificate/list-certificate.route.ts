@@ -1,10 +1,16 @@
-import { paginationSchema } from "@repo/validation";
+import {
+  createCertificateSchema,
+  listOutputSchema,
+  metaSchema,
+  paginationSchema,
+} from "@repo/validation";
 import { like } from "drizzle-orm";
 import { safeRoute } from "@/router/base";
 
 export const listCertificateRoute = safeRoute
   .route({ method: "GET", tags: ["Certificates"], path: "/certificate/list" })
   .input(paginationSchema)
+  .output(listOutputSchema(metaSchema.extend(createCertificateSchema.shape)))
   .handler(async ({ context, input }) => {
     const { db, schema } = context;
     const where = input.search ? like(schema.certificate.name, `%${input.search}%`) : undefined;

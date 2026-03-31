@@ -1,11 +1,13 @@
 import { blockListIdSchema } from "@repo/validation";
 import { eq } from "drizzle-orm";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
 import { handleFile } from "@/utils/handle-file";
 
 export const deleteBlockListRoute = safeRoute
   .route({ method: "DELETE", tags: ["Block Lists"], path: "/block-list/delete" })
   .input(blockListIdSchema)
+  .output(z.string())
   .errors({ NOT_FOUND: { message: "Block list not found" } })
   .handler(async ({ context, input, errors }) => {
     const { db, schema } = context;

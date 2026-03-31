@@ -1,11 +1,13 @@
 import { updateCertificateSchema } from "@repo/validation";
 import { eq } from "drizzle-orm";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
 import { handleFile } from "@/utils/handle-file";
 
 export const updateCertificateRoute = safeRoute
   .route({ method: "PUT", tags: ["Certificates"], path: "/certificate/update" })
   .input(updateCertificateSchema)
+  .output(z.string())
   .errors({ NOT_FOUND: { message: "Certificate not found" } })
   .handler(async ({ context, input, errors }) => {
     const { db, schema } = context;

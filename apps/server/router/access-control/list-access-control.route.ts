@@ -1,10 +1,26 @@
-import { paginationSchema } from "@repo/validation";
+import {
+  createAccessControlSchema,
+  listOutputSchema,
+  metaSchema,
+  paginationSchema,
+} from "@repo/validation";
 import { like } from "drizzle-orm";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
+
+const outputSchema = createAccessControlSchema.extend({
+  credentials: z.array(
+    z.object({
+      username: z.string(),
+      password: z.string(),
+    }),
+  ),
+});
 
 export const listAccessControlRoute = safeRoute
   .route({ method: "GET", tags: ["Access Control"], path: "/access-control/list" })
   .input(paginationSchema)
+  .output(listOutputSchema(metaSchema.extend(outputSchema.shape)))
   .handler(async ({ context, input }) => {
     const { db, schema } = context;
     const where = input.search ? like(schema.accessControl.name, `%${input.search}%`) : undefined;

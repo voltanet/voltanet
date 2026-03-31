@@ -1,10 +1,22 @@
-import { paginationSchema } from "@repo/validation";
+import {
+  createBlockListSchema,
+  listOutputSchema,
+  metaSchema,
+  paginationSchema,
+} from "@repo/validation";
 import { like } from "drizzle-orm";
+import { z } from "zod";
 import { safeRoute } from "@/router/base";
+
+const outputSchema = createBlockListSchema.extend({
+  count: z.number(),
+  lastSyncAt: z.date(),
+});
 
 export const listBlockListRoute = safeRoute
   .route({ method: "GET", tags: ["Block Lists"], path: "/block-list/list" })
   .input(paginationSchema)
+  .output(listOutputSchema(metaSchema.extend(outputSchema.shape)))
   .handler(async ({ context, input }) => {
     const { db, schema } = context;
     const where = input.search ? like(schema.blockList.name, `%${input.search}%`) : undefined;
