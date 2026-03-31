@@ -1,4 +1,5 @@
 import { paginationSchema } from "@repo/validation";
+import { like } from "drizzle-orm";
 import { safeRoute } from "@/router/base";
 
 export const listBlockListRoute = safeRoute
@@ -6,16 +7,19 @@ export const listBlockListRoute = safeRoute
   .input(paginationSchema)
   .handler(async ({ context, input }) => {
     const { db, schema } = context;
+    const where = input.search ? like(schema.blockList.name, `%${input.search}%`) : undefined;
 
     return await db.transaction(async (trx) => {
       const total = await trx.$count(schema.blockList);
+      const found = await trx.$count(schema.blockList, where);
+
       const items = await trx.query.blockList.findMany({
         orderBy: (table, { desc }) => [desc(table[input.sort])],
-        where: input.search ? (table, op) => op.like(table.name, `%${input.search}%`) : undefined,
         offset: (input.page - 1) * input.limit,
         limit: input.limit,
+        where,
       });
 
-      return { total, items };
+      return { total, found, items };
     });
   });

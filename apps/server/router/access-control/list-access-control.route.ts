@@ -1,4 +1,5 @@
 import { paginationSchema } from "@repo/validation";
+import { like } from "drizzle-orm";
 import { safeRoute } from "@/router/base";
 
 export const listAccessControlRoute = safeRoute
@@ -6,21 +7,25 @@ export const listAccessControlRoute = safeRoute
   .input(paginationSchema)
   .handler(async ({ context, input }) => {
     const { db, schema } = context;
+    const where = input.search ? like(schema.accessControl.name, `%${input.search}%`) : undefined;
 
     return await db.transaction(async (trx) => {
       const total = await trx.$count(schema.accessControl);
-      const items = (
-        await trx.query.accessControl.findMany({
-          orderBy: (table, { desc }) => [desc(table[input.sort])],
-          where: input.search ? (table, op) => op.like(table.name, `%${input.search}%`) : undefined,
-          offset: (input.page - 1) * input.limit,
-          limit: input.limit,
-        })
-      ).map(({ credentials, ...rest }) => ({
-        // Hide credentials passwords
+      const found = await trx.$count(schema.accessControl, where);
+
+      const results = await trx.query.accessControl.findMany({
+        orderBy: (table, { desc }) => [desc(table[input.sort])],
+        offset: (input.page - 1) * input.limit,
+        limit: input.limit,
+        where,
+      });
+
+      // Hide credentials passwords
+      const items = results.map(({ credentials, ...rest }) => ({
         ...rest,
         credentials: credentials.map(({ username }) => ({ username, password: "" })),
       }));
-      return { total, items };
+
+      return { total, found, items };
     });
   });
