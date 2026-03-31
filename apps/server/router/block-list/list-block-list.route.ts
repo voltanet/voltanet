@@ -14,7 +14,7 @@ export const listBlockListRoute = safeRoute
       const found = await trx.$count(schema.blockList, where);
 
       const items = await trx.query.blockList.findMany({
-        orderBy: (table, { desc }) => [desc(table[input.sort])],
+        orderBy: (table, op) => [op[input.direction](table[input.sort])],
         offset: (input.page - 1) * input.limit,
         limit: input.limit,
         where,

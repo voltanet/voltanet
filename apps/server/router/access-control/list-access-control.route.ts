@@ -14,7 +14,7 @@ export const listAccessControlRoute = safeRoute
       const found = await trx.$count(schema.accessControl, where);
 
       const results = await trx.query.accessControl.findMany({
-        orderBy: (table, { desc }) => [desc(table[input.sort])],
+        orderBy: (table, op) => [op[input.direction](table[input.sort])],
         offset: (input.page - 1) * input.limit,
         limit: input.limit,
         where,
