@@ -40,7 +40,7 @@ export const updateBlockListRoute = safeRoute
       const lastSyncAt = input.value ? new Date() : exists.lastSyncAt;
       await trx
         .update(schema.blockList)
-        .set({ ...input, count, lastSyncAt })
+        .set({ ...input, count, lastSyncAt, id: undefined })
         .where(where);
 
       return "Block list updated successfully";

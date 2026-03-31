@@ -10,8 +10,10 @@ export const dnsUpstream = dz.sqliteTable("dns_upstream", {
   ...SharedColumns,
   name: dz.text("name").notNull(),
   enabled: dz.integer("enabled", { mode: "boolean" }).default(true).notNull(),
-  server: dz.text("server").notNull(),
-  port: dz.integer("port").default(53).notNull(),
+  servers: dz
+    .text("servers", { mode: "json" })
+    .$type<{ server: string; port: number }[]>()
+    .notNull(),
 });
 
 export const dnsUpstreamRelations = relations(dnsUpstream, ({ many }) => ({

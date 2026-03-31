@@ -32,7 +32,7 @@ export const updateAccessControlRoute = safeRoute
 
       await trx
         .update(schema.accessControl)
-        .set({ ...input, credentials: credentials?.filter((c) => c !== undefined) })
+        .set({ ...input, id: undefined, credentials: credentials?.filter((c) => c !== undefined) })
         .where(where);
 
       return "Access control updated successfully";

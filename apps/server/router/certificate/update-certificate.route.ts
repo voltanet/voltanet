@@ -17,7 +17,10 @@ export const updateCertificateRoute = safeRoute
 
       if (input.cert) await handleFile(`certificate/${exists.id}.pem`, input.cert);
       if (input.key) await handleFile(`certificate/${exists.id}.key`, input.key);
-      await trx.update(schema.certificate).set(input).where(where);
+      await trx
+        .update(schema.certificate)
+        .set({ ...input, id: undefined })
+        .where(where);
 
       return "Certificate updated successfully";
     });
