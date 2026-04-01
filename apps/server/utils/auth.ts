@@ -9,7 +9,6 @@ const isProd = process.env.NODE_ENV === "production";
 
 // Better Auth instance
 export const auth = betterAuth({
-  baseURL: process.env.BASE_URL ?? "http://localhost:8090",
   // Use Drizzle ORM
   database: drizzleAdapter(db, { provider: "sqlite", schema }),
   // Disable telemetry
@@ -18,6 +17,7 @@ export const auth = betterAuth({
   plugins: isProd ? [] : [openAPI({ path: "/docs" })],
   emailAndPassword: {
     enabled: true,
+    disableSignUp: true,
     // TODO: handle emails in production
     requireEmailVerification: false,
     password: {
