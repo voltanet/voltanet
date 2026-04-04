@@ -4,6 +4,7 @@ import logo from "@/assets/images/logo.svg";
 import { CONFIG } from "@/features/const";
 
 export const Route = createFileRoute("/about")({
+  head: () => ({ meta: [{ title: `About | ${CONFIG.title}` }] }),
   component: () => {
     const navigate = useNavigate();
 

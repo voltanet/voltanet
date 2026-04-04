@@ -1,0 +1,8 @@
+.avatarGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  @include mantine.smaller-than(470px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

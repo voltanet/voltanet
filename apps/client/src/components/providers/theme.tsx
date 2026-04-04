@@ -1,9 +1,10 @@
 import * as Core from "@mantine/core";
+import { useAutoContrast, useDisplaySize, useFontFamily } from "@/features/settings";
 
 export const useAppTheme = () => {
-  const fontFamily = "Roboto";
-  const autoContrast = false;
-  const scale = 1;
+  const [fontFamily] = useFontFamily();
+  const [autoContrast] = useAutoContrast();
+  const [scale] = useDisplaySize();
 
   return Core.createTheme({
     fontFamily: `${fontFamily}, sans-serif`,
