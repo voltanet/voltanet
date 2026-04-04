@@ -1,12 +1,14 @@
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { ErrorOverlay } from "./components/overlay";
 import { auth } from "./features/auth";
 import { routeTree } from "./routeTree.gen";
 
 // Create a new router instance
 const router = createRouter({
   scrollRestoration: true,
+  defaultErrorComponent: ErrorOverlay,
   context: { session: null },
   routeTree,
 });

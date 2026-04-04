@@ -1,14 +1,4 @@
-import {
-  Anchor,
-  Card,
-  Divider,
-  Group,
-  SimpleGrid,
-  Stack,
-  Text,
-  ThemeIcon,
-  Title,
-} from "@mantine/core";
+import { Anchor, Card, Group, SimpleGrid, Stack, Text, ThemeIcon, Title } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Iconify } from "@/components/iconify";
@@ -23,12 +13,11 @@ export const Route = createFileRoute("/")({
     return (
       <Stack gap={15}>
         <Group>
-          <ThemeIcon size="xl" color={page.color} variant="light">
-            <Iconify height={30} icon={page.icon} />
+          <ThemeIcon size="lg" color={page.color} variant="light">
+            <Iconify height={20} icon={page.icon} />
           </ThemeIcon>
           <Title order={2}>{page.label}</Title>
         </Group>
-        <Divider />
         <SimpleGrid type="container" cols={{ base: 2, "600px": 3 }}>
           {pages.map((page) => (
             <Anchor key={page.to} component={Link} to={page.to} underline="never">

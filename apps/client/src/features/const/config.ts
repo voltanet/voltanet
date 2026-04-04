@@ -1,4 +1,7 @@
+import { description, version } from "@/../../../package.json";
+
 export const CONFIG = {
   title: "Voltanet",
-  description: "Define and manage custom domains for your local network.",
+  description,
+  version,
 } as const;
