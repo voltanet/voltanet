@@ -1,4 +1,13 @@
-import { Divider, Group, Kbd, Menu, Modal, Stack, Text } from "@mantine/core";
+import {
+  Divider,
+  Group,
+  Kbd,
+  Menu,
+  Modal,
+  Stack,
+  Text,
+  useMantineColorScheme,
+} from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { useNavigate } from "@tanstack/react-router";
 import { atom } from "jotai";
@@ -34,10 +43,12 @@ export const ShortcutsToggle = () => {
 export const ShortcutsView = () => {
   const navigate = useNavigate();
   const [opened, setOpened] = useAtom(state);
+  const { toggleColorScheme } = useMantineColorScheme();
 
   useHotkeys([
     ["mod + /", () => setOpened(!opened)],
     ["mod + .", () => navigate({ to: "/settings" })],
+    ["mod + j", toggleColorScheme],
   ]);
 
   const shortcuts = [

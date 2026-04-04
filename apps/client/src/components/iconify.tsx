@@ -7,7 +7,7 @@ export const Iconify = ({ icon, ...props }: $Iconify) => {
   const [data, setData] = useState<Required<IconifyIcon> | string>("");
   useMemo(() => iconLoader(icon).then(setData), [icon]);
 
-  return <Icon {...props} icon={data} />;
+  return <Icon strokeWidth={0.5} stroke="currentColor" {...props} icon={data} />;
 };
 
 const iconLoader = async (icon: string) =>

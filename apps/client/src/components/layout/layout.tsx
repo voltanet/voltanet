@@ -16,14 +16,15 @@ export const Layout = ({ children }: { children?: React.ReactNode }) => {
       header={{ height: 60, collapsed: false, offset: true }}
       navbar={{ width: 300, collapsed: { mobile: !opened, desktop: disabled }, breakpoint: "sm" }}
       disabled={disabled}
+      h="100%"
     >
       <Header />
       <NavBar />
-      <AppShell.Main>
-        <Container style={containerStyle} p={20}>
+      <AppShell.Main h="100%">
+        <Container style={containerStyle} h="100%" size="lg" p={20}>
           {children}
-          <ScrollTop />
           <ShortcutsView />
+          <ScrollTop />
         </Container>
       </AppShell.Main>
     </AppShell>

@@ -5,8 +5,8 @@ import { LoginForm } from "@/features/auth";
 export const Route = createFileRoute("/auth/login")({
   component: () => {
     return (
-      <Center h="calc(100vh - 40px)">
-        <Stack maw={450} w="100%" p={20}>
+      <Center h="100%">
+        <Stack maw={450} w="100%" py={20}>
           <Title order={2}>Welcome back</Title>
           <Text c="dimmed">Login to access the dashboard.</Text>
           <LoginForm />

@@ -6,9 +6,9 @@ export type Page = {
   list?: Page[];
 };
 
-export const PAGES: Record<string, Page[]> = {
+export const PAGES = {
   // ========== Dashboard ==========
-  Dashboard: [{ to: "/", label: "Home", icon: "solar:home-smile-outline" }],
+  Dashboard: [{ to: "/", label: "Home", color: "teal", icon: "solar:home-smile-outline" }],
   // ========== Proxy ==========
   "Reverse Proxy": [
     { to: "/proxy-hosts", label: "Proxy Hosts", color: "blue", icon: "solar:global-outline" },
@@ -41,4 +41,11 @@ export const PAGES: Record<string, Page[]> = {
       icon: "solar:shield-cross-outline",
     },
   ],
+} as const satisfies Record<string, Page[]>;
+
+type PageEntry = (typeof PAGES)[keyof typeof PAGES][number];
+
+export const PAGES_FLAT = Object.values(PAGES).flat() as PageEntry[];
+export const getPage = <T extends PageEntry["to"]>(to: T) => {
+  return PAGES_FLAT.find((page) => page.to === to) as Extract<PageEntry, { to: T }>;
 };
