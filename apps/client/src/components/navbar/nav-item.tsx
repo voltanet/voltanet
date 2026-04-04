@@ -2,7 +2,7 @@ import { NavLink, Stack } from "@mantine/core";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import type { Page } from "@/features/const";
-import { Iconify } from "../ui/iconify";
+import { Iconify } from "../iconify";
 
 export const NavItem = ({ to, icon, label, list }: Page) => {
   const { pathname } = useLocation();
@@ -18,12 +18,12 @@ export const NavItem = ({ to, icon, label, list }: Page) => {
       to={to}
       label={label}
       component={Link}
-      leftSection={<Iconify width={30} icon={icon} />}
+      leftSection={<Iconify width={20} icon={icon} />}
       children={children ? <Stack gap={10} children={children} /> : undefined}
       onClick={() => setOpened((prev) => !prev)}
       style={{ borderRadius: 10 }}
       active={pathname === to}
-      variant="light"
+      variant="filled"
       opened={opened}
     />
   );

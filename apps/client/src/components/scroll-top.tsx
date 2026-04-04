@@ -11,8 +11,8 @@ export const ScrollTop = () => {
     <Affix position={{ bottom: 20, right: 20 }}>
       <Transition transition="slide-up" mounted={scroll.y > 0}>
         {(style) => (
-          <ActionIcon size="40px" variant="default" onClick={top} style={style}>
-            <Iconify height={20} icon="solar:double-alt-arrow-up-outline" />
+          <ActionIcon size="lg" variant="default" onClick={top} style={style}>
+            <Iconify width={20} icon="solar:alt-arrow-up-outline" />
           </ActionIcon>
         )}
       </Transition>

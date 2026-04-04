@@ -1,8 +1,8 @@
 import { LoadingOverlay } from "@mantine/core";
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { Layout } from "@/components/Layout";
-import { Providers } from "@/components/Providers";
+import { Layout } from "@/components/layout";
+import { Providers } from "@/components/providers";
 import { MANIFEST } from "@/features/const";
 import { useDynamicPWA } from "@/hooks/use-dynamic-pwa";
 

@@ -7,17 +7,15 @@ export const useAppTheme = () => {
 
   return Core.createTheme({
     fontFamily: `${fontFamily}, sans-serif`,
-    primaryColor: "green",
+    primaryColor: "teal",
     defaultRadius: 10,
     autoContrast,
     scale,
-    colors: {
-      green: Core.colorsTuple("#00A550"),
-      text: Core.colorsTuple("var(--mantine-color-text)"),
-    },
+    colors: { text: Core.colorsTuple("var(--mantine-color-text)") },
     components: {
       Avatar: Core.Avatar.extend({ defaultProps: { radius: 5 } }),
       Accordion: Core.Accordion.extend({ defaultProps: { radius: "lg" } }),
+      ActionIcon: Core.ActionIcon.extend({ defaultProps: { size: "lg", variant: "default" } }),
       Badge: Core.Badge.extend({ defaultProps: { radius: 5, tt: "none" } }),
       Button: Core.Button.extend({ defaultProps: { variant: "default" } }),
       Group: Core.Group.extend({ defaultProps: { gap: 10 } }),
@@ -25,9 +23,6 @@ export const useAppTheme = () => {
       Card: Core.Card.extend({
         styles: { root: { overflow: "visible" } },
         defaultProps: { withBorder: true },
-      }),
-      AppShell: Core.AppShell.extend({
-        styles: { header: { paddingTop: "env(safe-area-inset-top)" } },
       }),
       LoadingOverlay: Core.LoadingOverlay.extend({
         defaultProps: { overlayProps: { blur: 5 } },
