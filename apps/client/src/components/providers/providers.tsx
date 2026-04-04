@@ -4,6 +4,7 @@ import { Notifications } from "@mantine/notifications";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { AuthProvider } from "@/features/auth";
 import { useAppTheme } from "./theme";
 
 import "@mantine/core/styles.css";
@@ -21,11 +22,13 @@ export const Providers = ({ children }: { children?: React.ReactNode }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <MantineProvider theme={theme} defaultColorScheme="auto">
-        <meta name="theme-color" content="var(--mantine-color-body)" />
-        <DatesProvider settings={{ consistentWeeks: true }}>
-          <Notifications />
-          {children}
-        </DatesProvider>
+        <AuthProvider>
+          <meta name="theme-color" content="var(--mantine-color-body)" />
+          <DatesProvider settings={{ consistentWeeks: true }}>
+            <Notifications />
+            {children}
+          </DatesProvider>
+        </AuthProvider>
       </MantineProvider>
     </QueryClientProvider>
   );

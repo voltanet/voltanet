@@ -1,6 +1,6 @@
 import { ActionIcon, Anchor, Avatar, Group, Menu, Stack, Text } from "@mantine/core";
 import { Link } from "@tanstack/react-router";
-import { auth } from "@/features/auth";
+import { auth, Logout } from "@/features/auth";
 import { Iconify } from "../iconify";
 import { ShortcutsToggle } from "../shortcuts";
 
@@ -43,11 +43,13 @@ export const HeaderMenu = () => {
         </Anchor>
         <MoreInfoMenu />
         <Menu.Divider />
-        <Menu.Item
-          children="Sign Out"
-          leftSection={<Iconify width={20} icon="solar:logout-3-outline" />}
-          color="red"
-        />
+        <Logout>
+          <Menu.Item
+            children="Sign Out"
+            leftSection={<Iconify width={20} icon="solar:logout-3-outline" />}
+            color="red"
+          />
+        </Logout>
       </Menu.Dropdown>
     </Menu>
   );
