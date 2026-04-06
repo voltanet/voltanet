@@ -1,13 +1,15 @@
+import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { useLocation } from "@tanstack/react-router";
-import { atom } from "jotai";
-import { useAtom } from "jotai/react";
 import { useEffect } from "react";
 
-const navBarAtom = atom(false);
-
 export const useNavBar = () => {
-  const [opened, setOpened] = useAtom(navBarAtom);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [opened, setOpened] = useLocalStorage({ key: "navbar-opened", defaultValue: true });
   const { pathname } = useLocation();
-  useEffect(() => setOpened(false), [pathname]);
+
+  useEffect(() => {
+    if (isMobile) setOpened(false);
+  }, [pathname, isMobile]);
+
   return [opened, setOpened] as const;
 };

@@ -9,7 +9,7 @@ export const HeaderMenu = () => {
   if (!session) return null;
 
   return (
-    <Menu position="top-start">
+    <Menu position="bottom-end">
       <Menu.Target>
         <ActionIcon variant="default" size="lg">
           <Avatar src={session.user.image} name={session.user.name} />

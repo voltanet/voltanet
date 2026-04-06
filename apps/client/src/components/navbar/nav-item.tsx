@@ -23,7 +23,7 @@ export const NavItem = ({ to, icon, label, list }: Page) => {
       onClick={() => setOpened((prev) => !prev)}
       style={{ borderRadius: 10 }}
       active={pathname === to}
-      variant="filled"
+      variant="light"
       opened={opened}
     />
   );

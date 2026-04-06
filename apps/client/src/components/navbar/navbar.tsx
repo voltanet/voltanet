@@ -4,14 +4,14 @@ import { NavItem } from "./nav-item";
 
 export const NavBar = () => {
   return (
-    <AppShell.Navbar>
+    <AppShell.Navbar left="auto">
       <AppShell.Section component={ScrollArea} grow>
         {Object.keys(PAGES).map((key) => (
           <Stack key={key} gap={5} p={10}>
             <Text fz="sm" c="dimmed" ml={10}>
               {key}
             </Text>
-            {PAGES[key].map((page) => (
+            {PAGES[key as keyof typeof PAGES].map((page) => (
               <NavItem key={page.to} {...page} />
             ))}
           </Stack>
