@@ -10,24 +10,21 @@ const start = Date.now();
 const isProd = process.env.NODE_ENV === "production";
 const hostname = process.env.HOSTNAME || "localhost";
 const port = parseInt(process.env.PORT || "8090", 10);
-const uploads = serveStatic({
-  rewriteRequestPath: (p) => p.replace("/api", ""),
-  root: "./data",
-});
 
 try {
   const { fetch } = new Hono()
     .use(cors()) // Global protection
     .use(logger(isProd ? () => {} : console.log))
-    .use(serveStatic({ root: "./client" })) // Serve client if exist
+    .use(serveStatic({ root: "./client" })) // Serve client
     .use("/api/auth/*", (c) => auth.handler(c.req.raw))
-    .use("/api/docs/*", router.docs) // API docs routes
-    .use("/api/uploads/*", uploads) // Serve uploads
-    .use("/api/*", router.routes) // API routes
+    .use("/api/docs/*", router.docs) // API docs
+    .use("/api/icons/:prefix", router.icons) // Serve icons
+    .use("/api/files/*", router.files) // Serve files
+    .use("/api/*", router.rpc) // RPC routes
     .notFound(async (c) => {
       const client = Bun.file("./client/index.html");
       return (await client.exists())
-        ? c.html(await client.text()) // Serve client
+        ? c.html(await client.text())
         : c.json(new ORPCError("NOT_FOUND").toJSON(), 404);
     })
     .onError((error, c) => {

@@ -8,7 +8,7 @@ import { HeaderMenu } from "./header-menu";
 
 export const Header = () => {
   const [opened, setOpened] = useNavBar();
-  const icon = opened ? "solar:list-cross-minimalistic-outline" : "solar:hamburger-menu-outline";
+  const icon = opened ? "solar:list-cross-minimalistic-bold" : "solar:list-bold";
 
   return (
     <AppShell.Header>

@@ -2,14 +2,17 @@ import { OpenAPIHandler } from "@orpc/openapi/fetch";
 import { OpenAPIReferencePlugin } from "@orpc/openapi/plugins";
 import { RPCHandler } from "@orpc/server/fetch";
 import { ZodToJsonSchemaConverter } from "@orpc/zod/zod4";
+import { serveStatic } from "hono/bun";
 import { createMiddleware } from "hono/factory";
 import { version } from "@/../../package.json"; // Main repo version
 import { router } from "./router";
 
+export { icons } from "./core/icons.route";
+export const files = serveStatic({ rewriteRequestPath: (p) => p.replace("/api", "./data") });
 export * from "./base";
 
 // Base API routes
-export const routes = createMiddleware(async (c, next) => {
+export const rpc = createMiddleware(async (c, next) => {
   const handler = new RPCHandler(router);
   const { matched, response } = await handler.handle(c.req.raw, {
     context: { headers: c.req.raw.headers },

@@ -24,17 +24,17 @@ export const AvatarPicker = ({ name, ...props }: $AvatarPicker) => {
       <Group>
         <Avatar size={60} src={value} name={name} />
         <Stack gap={5}>
-          <Text>Choose Image</Text>
+          <Text>Change Image</Text>
           <Button onClick={open} w="fit-content" size="xs">
             Choose
           </Button>
         </Stack>
       </Group>
-      <Modal opened={opened} onClose={close} title="Change profile avatar" keepMounted>
+      <Modal opened={opened} onClose={close} title="Change Image" keepMounted>
         <Box className={styles.avatarGrid} w="fit-content">
           <ActionIcon size="100%" variant="light" onClick={() => (setValue(null), close())}>
             <Stack gap={5} align="center">
-              <Iconify width="60%" icon="tabler:ban" />
+              <Iconify width="60%" icon="solar:gallery-remove-bold" />
               <Text size="xs" c="dimmed">
                 Remove
               </Text>

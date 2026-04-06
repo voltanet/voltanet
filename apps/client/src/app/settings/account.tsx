@@ -11,7 +11,7 @@ export const Route = createFileRoute("/settings/account")({
       <Stack>
         <Group>
           <ThemeIcon size="lg" color="teal" variant="light">
-            <Iconify height={20} icon="solar:user-outline" />
+            <Iconify height={20} icon="solar:user-bold" />
           </ThemeIcon>
           <Title order={3}>Account</Title>
         </Group>

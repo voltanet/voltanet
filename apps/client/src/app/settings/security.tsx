@@ -11,7 +11,7 @@ export const Route = createFileRoute("/settings/security")({
       <Stack>
         <Group>
           <ThemeIcon size="lg" color="teal" variant="light">
-            <Iconify height={20} icon="solar:shield-outline" />
+            <Iconify height={20} icon="solar:shield-bold" />
           </ThemeIcon>
           <Title order={3}>Security</Title>
         </Group>

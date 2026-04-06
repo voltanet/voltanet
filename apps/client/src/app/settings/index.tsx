@@ -18,7 +18,7 @@ export const Route = createFileRoute("/settings/")({
         <Logout>
           <NavLink
             label="Logout"
-            leftSection={<Iconify width={20} icon="solar:logout-3-outline" />}
+            leftSection={<Iconify width={20} icon="solar:logout-3-bold" />}
             style={{ borderRadius: 10 }}
             variant="light"
             color="red"
@@ -39,7 +39,7 @@ const SettingsList = ({ list }: { list: SettingsLink[] }) => {
             key={path}
             {...rest}
             leftSection={<Iconify width={25} icon={icon} />}
-            rightSection={<Iconify width={20} icon="solar:alt-arrow-right-outline" />}
+            rightSection={<Iconify width={20} icon="solar:alt-arrow-right-bold" />}
             style={{ borderRadius: 10 }}
             component={Link}
             variant="subtle"

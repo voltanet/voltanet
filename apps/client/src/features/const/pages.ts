@@ -8,37 +8,37 @@ export type Page = {
 
 export const PAGES = {
   // ========== Dashboard ==========
-  Dashboard: [{ to: "/", label: "Home", color: "teal", icon: "solar:home-smile-outline" }],
+  Dashboard: [{ to: "/", label: "Home", color: "teal", icon: "solar:home-smile-bold" }],
   // ========== Proxy ==========
   "Reverse Proxy": [
-    { to: "/proxy-hosts", label: "Proxy Hosts", color: "blue", icon: "solar:global-outline" },
+    { to: "/proxy-hosts", label: "Proxy Hosts", color: "blue", icon: "solar:global-bold" },
     {
       to: "/access-control",
       label: "Access Control",
       color: "green",
-      icon: "solar:shield-user-outline",
+      icon: "solar:shield-user-bold",
     },
     {
       to: "/certificates",
       label: "Certificates",
       color: "yellow",
-      icon: "solar:book-bookmark-outline",
+      icon: "solar:book-bookmark-bold",
     },
   ],
   // ========== DNS ==========
   "DNS Management": [
-    { to: "/dns-rewrites", label: "DNS Rewrites", color: "red", icon: "solar:route-outline" },
+    { to: "/dns-rewrites", label: "DNS Rewrites", color: "red", icon: "solar:route-bold" },
     {
       to: "/dns-upstreams",
       label: "DNS Upstreams",
       color: "teal",
-      icon: "solar:cloud-upload-outline",
+      icon: "solar:cloud-upload-bold",
     },
     {
       to: "/block-lists",
       label: "Block Lists",
       color: "indigo",
-      icon: "solar:shield-cross-outline",
+      icon: "solar:shield-cross-bold",
     },
   ],
 } as const satisfies Record<string, Page[]>;

@@ -16,6 +16,7 @@
     "./rpc": "./utils/rpc.ts"
   },
   "devDependencies": {
+    "@iconify-json/solar": "^1.2.5",
     "@orpc/openapi": "^1.11.2",
     "@orpc/server": "^1.11.2",
     "@orpc/zod": "^1.11.2",

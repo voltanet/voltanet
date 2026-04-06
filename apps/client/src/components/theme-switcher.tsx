@@ -6,8 +6,8 @@ export const ThemeSwitcher = () => {
 
   const schemes = [
     ["Auto", "solar:mirror-left-bold"],
-    ["Dark", "solar:moon-outline"],
-    ["Light", "solar:sun-2-outline"],
+    ["Dark", "solar:moon-bold"],
+    ["Light", "solar:sun-2-bold"],
   ].map(([title, icon]) => ({
     icon: <Iconify height={20} icon={icon} />,
     value: title.toLowerCase() as MantineColorScheme,
