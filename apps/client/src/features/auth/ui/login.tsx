@@ -3,7 +3,7 @@ import { signInSchema } from "@repo/validation";
 import { Iconify } from "@/components/iconify";
 import { useFormMutation } from "@/hooks/use-form-mutation";
 import { useNotify } from "@/hooks/use-notify";
-import { auth } from "../client";
+import { auth } from "../index";
 
 export const LoginForm = () => {
   const notify = useNotify();
@@ -23,6 +23,7 @@ export const LoginForm = () => {
       <Stack>
         {error && <Alert title="Error" variant="light" color="red" children={error.message} />}
         <TextInput
+          type="email"
           label="Email"
           placeholder="Enter your email"
           leftSection={<Iconify width={20} icon="solar:letter-bold" />}

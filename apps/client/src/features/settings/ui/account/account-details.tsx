@@ -28,7 +28,7 @@ export const AccountDetails = () => {
   return (
     <form onSubmit={form.onSubmit}>
       <Stack>
-        <Card component={Stack} gap={15}>
+        <Card component={Stack}>
           {error && <Alert title="Error !" color="red" children={error?.message} />}
           <AvatarPicker
             name={session.user.name}
@@ -50,7 +50,7 @@ export const AccountDetails = () => {
             disabled
           />
         </Card>
-        <Button type="submit" loading={isPending} variant="filled" w="fit-content">
+        <Button type="submit" loading={isPending} variant="filled">
           Save Changes
         </Button>
       </Stack>

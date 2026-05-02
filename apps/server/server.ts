@@ -1,4 +1,5 @@
 import { ORPCError } from "@orpc/server";
+import { migrator } from "@repo/database";
 import { Hono } from "hono";
 import { serveStatic } from "hono/bun";
 import { cors } from "hono/cors";
@@ -9,18 +10,19 @@ import { auth } from "./utils/auth";
 const start = Date.now();
 const isProd = process.env.NODE_ENV === "production";
 const hostname = process.env.HOSTNAME || "localhost";
-const port = parseInt(process.env.PORT || "8090", 10);
+const port = parseInt(process.env.PORT || "8000", 10);
 
 try {
+  await migrator();
   const { fetch } = new Hono()
     .use(cors()) // Global protection
-    .use(logger(isProd ? () => {} : console.log))
     .use(serveStatic({ root: "./client" })) // Serve client
-    .use("/api/auth/*", (c) => auth.handler(c.req.raw))
-    .use("/api/docs/*", router.docs) // API docs
+    .use(logger(isProd ? () => {} : console.log)) // Dev Logger
+    .use("/api/auth/*", (c) => auth.handler(c.req.raw)) // Auth routes
     .use("/api/icons/:prefix", router.icons) // Serve icons
     .use("/api/files/*", router.files) // Serve files
-    .use("/api/*", router.rpc) // RPC routes
+    .use("/api/docs/*", router.docs) // API docs
+    .use("/api/*", router.api) // API routes
     .notFound(async (c) => {
       const client = Bun.file("./client/index.html");
       return (await client.exists())

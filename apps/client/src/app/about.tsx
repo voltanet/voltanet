@@ -16,7 +16,7 @@ export const Route = createFileRoute("/about")({
             {CONFIG.title}
           </Badge>
           <Text>{CONFIG.description}</Text>
-          <Group gap={15}>
+          <Group>
             <Button variant="filled" onClick={() => navigate({ to: "/" })}>
               Go Home
             </Button>

@@ -12,7 +12,7 @@ export const files = serveStatic({ rewriteRequestPath: (p) => p.replace("/api", 
 export * from "./base";
 
 // Base API routes
-export const rpc = createMiddleware(async (c, next) => {
+export const api = createMiddleware(async (c, next) => {
   const handler = new RPCHandler(router);
   const { matched, response } = await handler.handle(c.req.raw, {
     context: { headers: c.req.raw.headers },
@@ -24,7 +24,9 @@ export const rpc = createMiddleware(async (c, next) => {
 
 // Scalar docs and API routes for development only
 export const docs = createMiddleware(async (c, next) => {
-  if (process.env.NODE_ENV === "production") return await next();
+  const isProd = process.env.NODE_ENV === "production";
+  const enabled = typeof process.env.ENABLE_DOCS !== "undefined";
+  if (isProd || !enabled) return await next();
   const scalar = new OpenAPIReferencePlugin({
     schemaConverters: [new ZodToJsonSchemaConverter()],
     specGenerateOptions: {

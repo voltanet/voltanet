@@ -77,7 +77,7 @@ const RevokeButton = ({ token }: { token: string }) => {
 
   return (
     <>
-      <Button w="fit-content" onClick={open} variant="filled" color="red">
+      <Button onClick={open} variant="filled" color="red">
         Revoke
       </Button>
       <Modal opened={opened} onClose={close} title="Confirm">

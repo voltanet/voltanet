@@ -8,12 +8,12 @@ export { TextStyleLoader } from "./text-style";
 
 export const AppearanceSettings = () => {
   return (
-    <Stack gap={20}>
+    <Stack>
       <Card component={Stack} gap={5}>
         <Text>Theme Mode</Text>
         <Text c="dimmed">Select the theme mode for your application</Text>
         <ThemeMode />
-        <div />
+        <Stack h={10} />
         <AutoContrast />
       </Card>
       <Card component={Stack} gap={5}>

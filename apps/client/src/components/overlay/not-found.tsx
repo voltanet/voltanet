@@ -14,7 +14,7 @@ export const NotFoundOverlay = () => {
         <Text c="dimmed">
           The page you're looking for doesn't exist or has been moved to a different location.
         </Text>
-        <Group gap={15}>
+        <Group>
           <Button variant="filled" onClick={() => navigate({ to: "/" })}>
             Go Home
           </Button>

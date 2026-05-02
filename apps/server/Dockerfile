@@ -21,6 +21,10 @@ RUN bun run build
 WORKDIR /build/apps/server
 RUN bun run compile
 
+# Generate migrations
+WORKDIR /build/packages/database
+RUN bun run db:generate
+
 # Stage 2: Production Image
 FROM alpine:3.22
 
@@ -30,7 +34,7 @@ LABEL org.opencontainers.image.title="Voltanet" \
   org.opencontainers.image.description="Define and manage custom domains for your local network." \
   org.opencontainers.image.author="Ibrahim Megahed <codjix@gmail.com>" \
   org.opencontainers.image.source="https://github.com/voltanet/voltanet.git" \
-  org.opencontainers.image.url="https://github.com/voltanet/voltanet" \
+  org.opencontainers.image.url="https://voltanet.github.io" \
   org.opencontainers.image.version="${IMAGE_VERSION}" \
   org.opencontainers.image.vendor="voltanet" \
   org.opencontainers.image.licenses="MIT" \
@@ -42,6 +46,7 @@ RUN apk add --no-cache libgcc libstdc++
 # Copy builds from builder
 COPY --from=builder --chown=bun:bun /build/apps/server/dist /app
 COPY --from=builder --chown=bun:bun /build/apps/client/dist /app/client
+COPY --from=builder --chown=bun:bun /build/packages/database/migrations /app/migrations
 
 # Create bun user
 RUN addgroup -g 1001 bun && \

@@ -4,7 +4,7 @@ import { AccountPassword } from "./account-password";
 
 export const AccountSettings = () => {
   return (
-    <Stack gap={20}>
+    <Stack>
       <AccountDetails />
       <AccountPassword />
     </Stack>

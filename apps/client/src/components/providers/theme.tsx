@@ -16,17 +16,16 @@ export const useAppTheme = () => {
     components: {
       Avatar: Core.Avatar.extend({ defaultProps: { radius: 5 } }),
       Accordion: Core.Accordion.extend({ defaultProps: { radius: "lg" } }),
-      ActionIcon: Core.ActionIcon.extend({ defaultProps: { size: "lg", variant: "default" } }),
+      SimpleGrid: Core.SimpleGrid.extend({ defaultProps: { spacing: 20 } }),
+      ActionIcon: Core.ActionIcon.extend({ defaultProps: { size: 36, variant: "default" } }),
+      LoadingOverlay: Core.LoadingOverlay.extend({ defaultProps: { overlayProps: { blur: 5 } } }),
+      Button: Core.Button.extend({ defaultProps: { variant: "default", w: "fit-content" } }),
       Badge: Core.Badge.extend({ defaultProps: { radius: 5, tt: "none" } }),
-      Button: Core.Button.extend({ defaultProps: { variant: "default" } }),
-      Group: Core.Group.extend({ defaultProps: { gap: 10 } }),
-      Stack: Core.Stack.extend({ defaultProps: { gap: 10 } }),
+      Group: Core.Group.extend({ defaultProps: { gap: 20 } }),
+      Stack: Core.Stack.extend({ defaultProps: { gap: 20 } }),
       Card: Core.Card.extend({
         styles: { root: { overflow: "visible" } },
         defaultProps: { withBorder: true },
-      }),
-      LoadingOverlay: Core.LoadingOverlay.extend({
-        defaultProps: { overlayProps: { blur: 5 } },
       }),
       Modal: Core.Modal.extend({
         defaultProps: {
@@ -37,7 +36,7 @@ export const useAppTheme = () => {
       }),
       Menu: Core.Menu.extend({
         defaultProps: {
-          shadow: "sm",
+          // shadow: "sm",
           keepMounted: true, // keep in DOM, required for modals
           arrowPosition: "center",
           withinPortal: false,

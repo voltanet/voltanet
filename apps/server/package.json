@@ -12,11 +12,12 @@
     "type-check": "tsgo --noEmit"
   },
   "exports": {
-    "./auth": "./utils/auth.ts",
-    "./rpc": "./utils/rpc.ts"
+    "./api": "./router/client.ts",
+    "./auth": "./utils/auth/client.ts"
   },
   "devDependencies": {
     "@iconify-json/solar": "^1.2.5",
+    "@orpc/client": "^1.14.0",
     "@orpc/openapi": "^1.11.2",
     "@orpc/server": "^1.11.2",
     "@orpc/zod": "^1.11.2",

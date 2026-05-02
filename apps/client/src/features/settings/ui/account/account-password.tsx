@@ -23,7 +23,7 @@ export const AccountPassword = () => {
   return (
     <form onSubmit={form.onSubmit}>
       <Stack>
-        <Card component={Stack} gap={15}>
+        <Card component={Stack}>
           {error && <Alert title="Error !" color="red" children={error.message} />}
           <PasswordInput
             label="Current Password"
@@ -46,7 +46,7 @@ export const AccountPassword = () => {
             radius="sm"
           />
         </Card>
-        <Button type="submit" variant="filled" w="fit-content" loading={isPending}>
+        <Button type="submit" variant="filled" loading={isPending}>
           Update Password
         </Button>
       </Stack>

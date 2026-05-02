@@ -1,6 +1,6 @@
 import { Box, Button, Group, Modal, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { auth } from "../client";
+import { auth } from "../index";
 
 export const Logout = ({ children }: { children: React.ReactNode }) => {
   const [opened, { open, close }] = useDisclosure(false);

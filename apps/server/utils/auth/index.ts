@@ -9,7 +9,8 @@ const isProd = process.env.NODE_ENV === "production";
 
 // Better Auth instance
 export const auth = betterAuth({
-  trustedOrigins: isProd ? [] : ["http://localhost:3000"],
+  // basePath: "/auth",
+  trustedOrigins: isProd ? [] : ["http://localhost:3000", process.env.DEV_HOST ?? ""],
   // Use Drizzle ORM
   database: drizzleAdapter(db, { provider: "sqlite", schema }),
   // Disable telemetry

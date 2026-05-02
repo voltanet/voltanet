@@ -5,7 +5,8 @@ export function getIcons(): { list: typeof icons.icons; info: typeof info } {
 
   for (const icon in icons.icons) {
     if (icon.endsWith("-bold")) {
-      list[icon] = icons.icons[icon];
+      // biome-ignore lint/style/noNonNullAssertion: icon is guaranteed to be defined
+      list[icon] = icons.icons[icon]!;
     }
   }
 

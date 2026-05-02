@@ -14,8 +14,8 @@ export default defineConfig({
   resolve: { alias: { "@": "/src" } },
   build: { chunkSizeWarningLimit: 1000 },
   plugins: [tanstackRouter(routerOptions), react()],
-  server: { host: true, port: 3000, proxy: { "/api": "http://localhost:8090" } },
-  preview: { host: true, port: 8080, proxy: { "/api": "http://localhost:8090" } },
+  server: { host: true, port: 3000, proxy: { "/api": "http://localhost:8000" } },
+  preview: { host: true, port: 8080, proxy: { "/api": "http://localhost:8000" } },
   css: {
     preprocessorOptions: {
       scss: { additionalData: `@use "${mantine.replace(/\\/g, "/")}" as mantine;` },

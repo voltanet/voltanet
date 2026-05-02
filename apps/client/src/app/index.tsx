@@ -1,7 +1,8 @@
-import { Anchor, Card, Group, SimpleGrid, Stack, Text, ThemeIcon, Title } from "@mantine/core";
+import { Anchor, Card, SimpleGrid, Stack, Text, ThemeIcon } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Iconify } from "@/components/iconify";
+import { PageLayout } from "@/components/layout";
 import { CONFIG, PAGES_FLAT } from "@/features/const";
 
 export const Route = createFileRoute("/")({
@@ -11,13 +12,7 @@ export const Route = createFileRoute("/")({
     const isMobile = useMediaQuery("(max-width: 450px)");
 
     return (
-      <Stack gap={15}>
-        <Group>
-          <ThemeIcon size="lg" color={page.color} variant="light">
-            <Iconify height={20} icon={page.icon} />
-          </ThemeIcon>
-          <Title order={2}>{page.label}</Title>
-        </Group>
+      <PageLayout icon={page.icon} label={page.label}>
         <SimpleGrid type="container" cols={{ base: 2, "600px": 3 }}>
           {pages.map((page) => (
             <Anchor key={page.to} component={Link} to={page.to} underline="never">
@@ -32,7 +27,7 @@ export const Route = createFileRoute("/")({
             </Anchor>
           ))}
         </SimpleGrid>
-      </Stack>
+      </PageLayout>
     );
   },
 });

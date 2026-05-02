@@ -19,7 +19,7 @@ export const ErrorOverlay = ({ error, reset }: ErrorComponentProps) => {
           <Text c="dimmed">
             Please try again later or check the browser console for more details.
           </Text>
-          <Group gap={15}>
+          <Group>
             <Button variant="filled" onClick={() => navigate({ to: "/" })}>
               Go Home
             </Button>
