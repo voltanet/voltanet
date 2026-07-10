@@ -9,12 +9,11 @@ import { AvatarPicker } from "./avatar-picker";
 export const AccountDetails = () => {
   const notify = useNotify();
   const { data: session } = auth.useSession();
-  if (!session) return null;
 
   const { form, isPending, error } = useFormMutation({
     initialValues: {
-      image: session.user.image,
-      name: session.user.name,
+      image: session?.user.image,
+      name: session?.user.name,
     },
     schema: updateDetailsSchema,
     mutationFn: async (values) => {
@@ -24,10 +23,16 @@ export const AccountDetails = () => {
     },
   });
 
+  if (!session) return null;
+
   return (
     <form onSubmit={form.onSubmit}>
       <Card component={Stack}>
-        {error && <Alert title="Error !" color="red" children={error?.message} />}
+        {error && (
+          <Alert title="Error !" color="red">
+            {error?.message}
+          </Alert>
+        )}
         <AvatarPicker
           name={session.user.name}
           {...form.getInputProps("image")}

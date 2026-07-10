@@ -14,14 +14,12 @@ export const ThemeSwitcher = () => {
     title,
   }));
 
-  const curentScheme = schemes.find((item) => item.value == colorScheme);
+  const curentScheme = schemes.find((item) => item.value === colorScheme);
   const currentIndex = schemes.indexOf(curentScheme as (typeof schemes)[0]);
 
   return (
-    <ActionIcon
-      onClick={() => setColorScheme(schemes[(currentIndex + 1) % 3].value)}
-      children={curentScheme?.icon}
-      size="lg"
-    />
+    <ActionIcon size="lg" onClick={() => setColorScheme(schemes[(currentIndex + 1) % 3].value)}>
+      {curentScheme?.icon}
+    </ActionIcon>
   );
 };

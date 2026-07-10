@@ -23,7 +23,11 @@ export const AccountPassword = () => {
   return (
     <form onSubmit={form.onSubmit}>
       <Card component={Stack}>
-        {error && <Alert title="Error !" color="red" children={error.message} />}
+        {error && (
+          <Alert title="Error !" color="red">
+            {error.message}
+          </Alert>
+        )}
         <PasswordInput
           label="Current Password"
           placeholder="Enter your current password"

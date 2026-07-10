@@ -7,7 +7,7 @@ export const Logout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <Box children={children} onClick={open} />
+      <Box onClick={open}>{children}</Box>
       <Modal opened={opened} onClose={close} title="Confirm">
         <Text mb={20}>Are you sure you want to logout?</Text>
         <Group justify="flex-end">

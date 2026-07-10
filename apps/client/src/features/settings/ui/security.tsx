@@ -17,9 +17,6 @@ import { useNotify } from "@/hooks/use-notify";
 
 export const SecuritySettings = () => {
   const { data: session, isPending: isSessionPending } = auth.useSession();
-  if (isSessionPending) return <LoadingOverlay visible />;
-  if (!session) return null;
-
   const { data, isPending, error } = useQuery({
     queryKey: ["sessions"],
     queryFn: async () => {
@@ -28,6 +25,9 @@ export const SecuritySettings = () => {
       return data;
     },
   });
+
+  if (isSessionPending) return <LoadingOverlay visible />;
+  if (!session) return null;
 
   if (isPending) return <LoadingOverlay visible />;
   if (error) throw error;

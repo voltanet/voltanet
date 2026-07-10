@@ -16,10 +16,11 @@ export const Iconify = ({ icon, ...props }: $Iconify) => {
 };
 
 const iconLoader = async (icon: string) =>
-  new Promise<Required<IconifyIcon>>(async (resolve) => {
+  new Promise<Required<IconifyIcon>>((resolve) => {
     const cached = localStorage.getItem(`iconify$${icon}`);
     if (cached) return resolve(JSON.parse(cached));
-    const data = await loadIcon(icon.startsWith("solar:") ? `@local:${icon}` : icon);
-    localStorage.setItem(`iconify$${icon}`, JSON.stringify(data));
-    resolve(data);
+    loadIcon(icon.startsWith("solar:") ? `@local:${icon}` : icon).then((data) => {
+      localStorage.setItem(`iconify$${icon}`, JSON.stringify(data));
+      resolve(data);
+    });
   });

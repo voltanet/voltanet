@@ -42,11 +42,9 @@ export const HeaderMenu = () => {
         <MoreInfoMenu />
         <Menu.Divider />
         <Logout>
-          <Menu.Item
-            children="Sign Out"
-            leftSection={<Iconify width={20} icon="solar:logout-3-bold" />}
-            color="red"
-          />
+          <Menu.Item color="red" leftSection={<Iconify width={20} icon="solar:logout-3-bold" />}>
+            Sign Out
+          </Menu.Item>
         </Logout>
       </Menu.Dropdown>
     </Menu>

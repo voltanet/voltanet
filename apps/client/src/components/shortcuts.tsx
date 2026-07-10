@@ -36,8 +36,9 @@ export const ShortcutsToggle = () => {
     <Menu.Item
       onClick={() => setOpened(!opened)}
       leftSection={<Iconify width={20} icon="solar:keyboard-bold" />}
-      children="Keyboard Shortcuts"
-    />
+    >
+      "Keyboard Shortcuts"
+    </Menu.Item>
   );
 };
 
@@ -65,7 +66,7 @@ export const ShortcutsView = () => {
     <Modal title="Keyboard Shortcuts" opened={opened} onClose={() => setOpened(false)}>
       <Stack gap={15}>
         {shortcuts.map((shortcut, index) => (
-          <Fragment key={index}>
+          <Fragment key={shortcut.label}>
             {index > 0 && <Divider />}
             <Shortcut label={shortcut.label} keys={shortcut.keys} />
           </Fragment>

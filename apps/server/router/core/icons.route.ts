@@ -1,9 +1,9 @@
-import type { Context } from "hono";
+import type { Context, Env } from "hono";
 import { getIcons } from "@/utils/icons" with { type: "macro" };
 
 const { collection, size } = getIcons();
 
-export const icons = async (c: Context<any, "/:prefix">) => {
+export const icons = async (c: Context<Env, "/:prefix">) => {
   // get icons names
   const query = c.req.query("icons");
   const names = query ? query.split(",") : [];

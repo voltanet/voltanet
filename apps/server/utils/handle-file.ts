@@ -12,7 +12,7 @@ export const handleFile = async (targetPath: string, input?: string | null) => {
   // Handle input
   if (typeof input === "string") {
     // If input is a path
-    if (input == `/api/${targetPath}`) return input;
+    if (input === `/api/${targetPath}`) return input;
 
     // If input is a value
     await file.write(input);

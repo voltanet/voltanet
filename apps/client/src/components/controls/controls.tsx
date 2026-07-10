@@ -7,7 +7,7 @@ import { useControls } from "./use-controls";
 type $Controls = { refetch: () => Promise<void>; loading: boolean };
 
 export const Controls = ({ refetch, loading }: $Controls) => {
-  const [{ direction }, setControls] = useControls();
+  const [{ direction, sort }, setControls] = useControls();
   const setSearch = useDebouncedCallback(
     (search: string) => setControls((prev) => ({ ...prev, search })),
     500,
@@ -38,7 +38,7 @@ export const Controls = ({ refetch, loading }: $Controls) => {
             defaultValue="updatedAt"
             checkIconPosition="right"
             styles={{ input: { borderRadius: "10px 0 0 10px" } }}
-            onChange={(sort: any) => setControls((prev) => ({ ...prev, sort }))}
+            onChange={(value) => setControls((prev) => ({ ...prev, sort: value as typeof sort }))}
             data={[
               { value: "updatedAt", label: "Update Time" },
               { value: "createdAt", label: "Create Time" },

@@ -7,7 +7,7 @@ import { Iconify } from "../iconify";
 export const NavItem = ({ to, icon, label, list }: Page) => {
   const { pathname } = useLocation();
   const [opened, setOpened] = useState(false);
-  const children = list?.map((link, index) => <NavItem key={index} {...link} />);
+  const children = list?.map((link) => <NavItem key={link.label} {...link} />);
 
   useEffect(() => {
     setOpened(pathname.startsWith(to));
@@ -20,12 +20,13 @@ export const NavItem = ({ to, icon, label, list }: Page) => {
       component={Link}
       activeOptions={{ exact: true }}
       leftSection={<Iconify width={20} icon={icon} />}
-      children={children ? <Stack gap={10} children={children} /> : undefined}
       onClick={() => setOpened((prev) => !prev)}
       style={{ borderRadius: 10 }}
       active={pathname === to}
       variant="light"
       opened={opened}
-    />
+    >
+      {children ? <Stack gap={10}>{children}</Stack> : undefined}
+    </NavLink>
   );
 };

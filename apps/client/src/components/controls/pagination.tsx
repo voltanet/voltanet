@@ -6,6 +6,7 @@ export const ControlsPagination = (props: { total: number }) => {
   const [{ page, limit }, setControls] = useControls();
   const setPage = (page: number) => setControls((prev) => ({ ...prev, page }));
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: reset on change
   useEffect(() => setPage(1), [props.total, limit]);
 
   const total = Math.ceil(props.total / limit);

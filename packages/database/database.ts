@@ -2,7 +2,7 @@ import { drizzle } from "drizzle-orm/bun-sqlite";
 import { migrate } from "drizzle-orm/bun-sqlite/migrator";
 import * as schema from "./schema";
 
-const isProd = process.env.NODE_ENV == "production";
+const isProd = process.env.NODE_ENV === "production";
 const DATABASE_URL = isProd ? "./data/db.sqlite" : `${__dirname}/data/db.sqlite`;
 
 export type $DB = typeof db;

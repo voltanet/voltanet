@@ -10,7 +10,11 @@ type $UseFormMutation<Z, I, R, F = MutateFunction<R, Error, I>> = {
   initialValues?: I;
 } & UseMutationOptions<R, Error, I, unknown>;
 
-export const useFormMutation = <Z extends ZodType<any>, I extends z.infer<Z>, R>(
+export const useFormMutation = <
+  Z extends ZodType<Record<string, unknown>>,
+  I extends z.infer<Z>,
+  R,
+>(
   // extract form props and keep the rest for the mutation.
   { initialValues, schema, ...options }: $UseFormMutation<Z, I, R>,
 ) => {

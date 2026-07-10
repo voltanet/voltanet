@@ -21,7 +21,11 @@ export const LoginForm = () => {
   return (
     <form onSubmit={form.onSubmit}>
       <Stack>
-        {error && <Alert title="Error" variant="light" color="red" children={error.message} />}
+        {error && (
+          <Alert title="Error" variant="light" color="red">
+            {error.message}
+          </Alert>
+        )}
         <TextInput
           type="email"
           label="Email"

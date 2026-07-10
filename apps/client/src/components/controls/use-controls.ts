@@ -10,7 +10,8 @@ export const useControls = () => {
   const [controls, setControls] = useAtom(store);
   const { pathname } = useLocation();
 
-  useEffect(() => setControls(defaults), [pathname]);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: reset on navigation
+  useEffect(() => setControls(defaults), [pathname, setControls]);
 
   return [controls, setControls] as const;
 };
