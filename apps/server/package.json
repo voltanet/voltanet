@@ -18,9 +18,7 @@
   "devDependencies": {
     "@iconify-json/solar": "^1.2.5",
     "@orpc/client": "^1.14.0",
-    "@orpc/openapi": "^1.11.2",
     "@orpc/server": "^1.11.2",
-    "@orpc/zod": "^1.11.2",
     "@repo/database": "workspace:*",
     "@repo/shared": "workspace:*",
     "@repo/validation": "workspace:*",

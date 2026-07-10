@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./apps/server/Dockerfile
+          file: ./docker/Dockerfile
           push: true
           tags: |
             ${{ github.repository }}:${{ inputs.image_version }}

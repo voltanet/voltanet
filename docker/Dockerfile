@@ -44,14 +44,14 @@ LABEL org.opencontainers.image.title="Voltanet" \
 RUN apk add --no-cache libgcc libstdc++
 
 # Copy builds from builder
-COPY --from=builder --chown=bun:bun /build/apps/server/dist /app
-COPY --from=builder --chown=bun:bun /build/apps/client/dist /app/client
-COPY --from=builder --chown=bun:bun /build/packages/database/migrations /app/migrations
+COPY --from=builder /build/apps/server/dist /app
+COPY --from=builder /build/apps/client/dist /app/client
+COPY --from=builder /build/packages/database/migrations /app/migrations
 
 # Create bun user
-RUN addgroup -g 1001 bun && \
-  adduser -u 1001 -G bun -s /bin/sh -D bun && \
-  chown -R bun:bun /app/data
+RUN addgroup -g 1000 bun && \
+  adduser -u 1000 -G bun -D bun && \
+  chown -R bun:bun /app
 
 # Set working directory and environment variables
 WORKDIR /app

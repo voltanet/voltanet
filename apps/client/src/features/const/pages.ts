@@ -4,14 +4,18 @@ export type Page = {
   icon: string;
   color?: string;
   list?: Page[];
+  hideFrom?: "nav" | "home";
 };
 
 export const PAGES = {
   // ========== Dashboard ==========
-  Dashboard: [{ to: "/", label: "Home", color: "teal", icon: "solar:home-smile-bold" }],
+  Dashboard: [
+    { to: "/", label: "Home", color: "teal", icon: "solar:home-smile-bold", hideFrom: "home" },
+    { to: "/logs", label: "Activity Logs", color: "violet", icon: "solar:history-bold" },
+  ],
   // ========== Proxy ==========
   "Reverse Proxy": [
-    { to: "/proxy-hosts", label: "Proxy Hosts", color: "blue", icon: "solar:global-bold" },
+    { to: "/proxy-hosts", label: "Proxy Hosts", color: "red", icon: "solar:global-bold" },
     {
       to: "/access-control",
       label: "Access Control",
@@ -27,17 +31,17 @@ export const PAGES = {
   ],
   // ========== DNS ==========
   "DNS Management": [
-    { to: "/dns-rewrites", label: "DNS Rewrites", color: "red", icon: "solar:route-bold" },
+    { to: "/dns-rewrites", label: "DNS Rewrites", color: "cyan", icon: "solar:route-bold" },
     {
       to: "/dns-upstreams",
       label: "DNS Upstreams",
-      color: "teal",
+      color: "orange",
       icon: "solar:cloud-upload-bold",
     },
     {
       to: "/block-lists",
       label: "Block Lists",
-      color: "indigo",
+      color: "teal",
       icon: "solar:shield-cross-bold",
     },
   ],

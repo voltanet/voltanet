@@ -22,34 +22,34 @@ export const AccountPassword = () => {
 
   return (
     <form onSubmit={form.onSubmit}>
-      <Stack>
-        <Card component={Stack}>
-          {error && <Alert title="Error !" color="red" children={error.message} />}
-          <PasswordInput
-            label="Current Password"
-            placeholder="Enter your current password"
-            {...form.getInputProps("currentPassword")}
-            key={form.key("currentPassword")}
-            variant="filled"
-          />
-          <PasswordInput
-            label="New Password"
-            placeholder="Enter your new password"
-            {...form.getInputProps("newPassword")}
-            key={form.key("newPassword")}
-            variant="filled"
-          />
-          <Checkbox
-            label="Sign out from other devices"
-            {...form.getInputProps("revokeOtherSessions")}
-            key={form.key("revokeOtherSessions")}
-            radius="sm"
-          />
-        </Card>
-        <Button type="submit" variant="filled" loading={isPending}>
-          Update Password
-        </Button>
-      </Stack>
+      <Card component={Stack}>
+        {error && <Alert title="Error !" color="red" children={error.message} />}
+        <PasswordInput
+          label="Current Password"
+          placeholder="Enter your current password"
+          {...form.getInputProps("currentPassword")}
+          key={form.key("currentPassword")}
+          variant="filled"
+        />
+        <PasswordInput
+          label="New Password"
+          placeholder="Enter your new password"
+          {...form.getInputProps("newPassword")}
+          key={form.key("newPassword")}
+          variant="filled"
+        />
+        <Checkbox
+          label="Sign out from other devices"
+          {...form.getInputProps("revokeOtherSessions")}
+          key={form.key("revokeOtherSessions")}
+          radius="sm"
+        />
+        {form.isDirty() && (
+          <Button type="submit" variant="filled" loading={isPending}>
+            Update Password
+          </Button>
+        )}
+      </Card>
     </form>
   );
 };

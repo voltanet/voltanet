@@ -16,8 +16,8 @@ export const Layout = ({ children }: { children?: React.ReactNode }) => {
   return (
     <AppShell
       h="100%"
-      header={{ height: 60, collapsed: false, offset: true }}
       disabled={disabled}
+      header={{ height: 60, collapsed: false, offset: true }}
       navbar={{
         width: { base: 200, md: 250 },
         collapsed: { mobile: !opened, desktop: !opened || disabled },

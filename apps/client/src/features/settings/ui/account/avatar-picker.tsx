@@ -11,7 +11,7 @@ export const AvatarPicker = ({ name, ...props }: $AvatarPicker) => {
   const avatars = Array.from({ length: 10 }, (_, i) => {
     const avatar = `/images/avatars/avatar-${++i}.png`;
     return (
-      <ActionIcon size="100%" variant="light" onClick={() => (setValue(avatar), close())} key={i}>
+      <ActionIcon variant="light" size="100%" onClick={() => (setValue(avatar), close())} key={i}>
         <Avatar size="100%" src={avatar} />
       </ActionIcon>
     );
@@ -30,7 +30,7 @@ export const AvatarPicker = ({ name, ...props }: $AvatarPicker) => {
       </Group>
       <Modal opened={opened} onClose={close} title="Change Image" keepMounted>
         <SimpleGrid cols={{ base: 3, xs: 4 }} w="fit-content">
-          <ActionIcon size="100%" variant="light" onClick={() => (setValue(null), close())}>
+          <ActionIcon variant="light" size="100%" onClick={() => (setValue(null), close())}>
             <Stack gap={5} align="center">
               <Iconify width="60%" icon="solar:gallery-remove-bold" />
               <Text size="xs" c="dimmed">

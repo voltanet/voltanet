@@ -1,9 +1,7 @@
-import path from "node:path";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-const mantine = path.join(process.cwd(), "src/assets/styles/_mantine");
 const routerOptions = {
   routesDirectory: "./src/app",
   autoCodeSplitting: true,
@@ -18,7 +16,9 @@ export default defineConfig({
   preview: { host: true, port: 8080, proxy: { "/api": "http://localhost:8000" } },
   css: {
     preprocessorOptions: {
-      scss: { additionalData: `@use "${mantine.replace(/\\/g, "/")}" as mantine;` },
+      scss: {
+        additionalData: `@use "${__dirname}/src/assets/styles/_mantine" as mantine;`,
+      },
     },
   },
 });

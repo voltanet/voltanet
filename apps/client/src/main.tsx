@@ -1,7 +1,7 @@
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ErrorOverlay } from "./components/overlay";
+import { ErrorOverlay, NotFoundOverlay } from "./components/overlay";
 import { auth } from "./features/auth";
 import { routeTree } from "./routeTree.gen";
 
@@ -9,6 +9,7 @@ import { routeTree } from "./routeTree.gen";
 const router = createRouter({
   scrollRestoration: true,
   defaultErrorComponent: ErrorOverlay,
+  defaultNotFoundComponent: NotFoundOverlay,
   context: { session: null },
   routeTree,
 });

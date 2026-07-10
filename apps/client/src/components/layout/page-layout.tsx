@@ -1,30 +1,38 @@
-import { Group, Stack, Text, ThemeIcon, Title } from "@mantine/core";
+import { ActionIcon, Group, Stack, Text, ThemeIcon, Title } from "@mantine/core";
 import { Iconify } from "@/components/iconify";
 
 type $PageLayout = {
-  icon: string;
   label: string;
   description?: string;
-  action?: React.ReactNode;
   children?: React.ReactNode;
+  action?: React.ReactNode;
+  withBack?: boolean;
+  icon?: string;
 };
 
-export const PageLayout = ({ icon, label, description, action, children }: $PageLayout) => {
+export const PageLayout = (props: $PageLayout) => {
   return (
     <Stack>
       <Group align="flex-start" mb={5}>
         <Stack flex={1} gap={10}>
           <Group gap={15}>
-            <ThemeIcon size="lg" variant="light">
-              <Iconify height={20} icon={icon} />
-            </ThemeIcon>
-            <Title order={2}>{label}</Title>
+            {props.withBack && (
+              <ActionIcon variant="default" size="lg" onClick={() => history.back()}>
+                <Iconify width={20} icon="solar:arrow-left-outline" />
+              </ActionIcon>
+            )}
+            {props.icon && !props.withBack && (
+              <ThemeIcon variant="light" size="lg">
+                <Iconify width={20} icon={props.icon} />
+              </ThemeIcon>
+            )}
+            <Title order={2}>{props.label}</Title>
           </Group>
-          {description && <Text c="dimmed">{description}</Text>}
+          {props.description && <Text c="dimmed">{props.description}</Text>}
         </Stack>
-        {action}
+        {props.action}
       </Group>
-      {children}
+      {props.children}
       <Stack h={60} />
     </Stack>
   );

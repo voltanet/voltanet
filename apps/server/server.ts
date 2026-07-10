@@ -20,8 +20,6 @@ try {
     .use(logger(isProd ? () => {} : console.log)) // Dev Logger
     .use("/api/auth/*", (c) => auth.handler(c.req.raw)) // Auth routes
     .use("/api/icons/:prefix", router.icons) // Serve icons
-    .use("/api/files/*", router.files) // Serve files
-    .use("/api/docs/*", router.docs) // API docs
     .use("/api/*", router.api) // API routes
     .notFound(async (c) => {
       const client = Bun.file("./client/index.html");
@@ -35,8 +33,8 @@ try {
     });
 
   Bun.serve({ fetch, hostname, port });
-  console.log(`Ready in ${Date.now() - start} ms`);
   console.log(`Server running at http://${hostname}:${port}`);
+  console.log(`Ready in ${Date.now() - start} ms`);
   process.on("SIGTERM", () => process.exit(0));
   process.on("SIGINT", () => process.exit(0));
 } catch (error) {

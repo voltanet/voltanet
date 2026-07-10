@@ -15,7 +15,6 @@ export const AccountDetails = () => {
     initialValues: {
       image: session.user.image,
       name: session.user.name,
-      // email: session.user.email,
     },
     schema: updateDetailsSchema,
     mutationFn: async (values) => {
@@ -27,33 +26,33 @@ export const AccountDetails = () => {
 
   return (
     <form onSubmit={form.onSubmit}>
-      <Stack>
-        <Card component={Stack}>
-          {error && <Alert title="Error !" color="red" children={error?.message} />}
-          <AvatarPicker
-            name={session.user.name}
-            {...form.getInputProps("image")}
-            key={form.key("image")}
-          />
-          <TextInput
-            label="Name"
-            placeholder="Enter your full name"
-            leftSection={<Iconify icon="solar:user-bold" />}
-            {...form.getInputProps("name")}
-            key={form.key("name")}
-            variant="filled"
-          />
-          <TextInput
-            label="Email Address"
-            leftSection={<Iconify width={20} icon="solar:letter-bold" />}
-            value={session.user.email}
-            disabled
-          />
-        </Card>
-        <Button type="submit" loading={isPending} variant="filled">
-          Save Changes
-        </Button>
-      </Stack>
+      <Card component={Stack}>
+        {error && <Alert title="Error !" color="red" children={error?.message} />}
+        <AvatarPicker
+          name={session.user.name}
+          {...form.getInputProps("image")}
+          key={form.key("image")}
+        />
+        <TextInput
+          label="Name"
+          placeholder="Enter your full name"
+          leftSection={<Iconify icon="solar:user-bold" />}
+          {...form.getInputProps("name")}
+          key={form.key("name")}
+          variant="filled"
+        />
+        <TextInput
+          label="Email Address"
+          leftSection={<Iconify width={20} icon="solar:letter-bold" />}
+          value={session.user.email}
+          disabled
+        />
+        {form.isDirty() && (
+          <Button type="submit" loading={isPending} variant="filled">
+            Save Changes
+          </Button>
+        )}
+      </Card>
     </form>
   );
 };
