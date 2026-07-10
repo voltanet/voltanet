@@ -5,12 +5,24 @@
   "scripts": {
     "format": "biome format --write",
     "check": "biome check --write",
-    "type-check": "tsgo --noEmit"
+    "type-check": "tsc"
   },
   "exports": {
-    ".": "./index.ts",
-    "./constants": "./constants/index.ts",
-    "./types": "./types/index.ts",
-    "./i18n": "./i18n/index.ts"
+    ".": {
+      "types": "./.types/index.d.ts",
+      "default": "./index.ts"
+    },
+    "./constants": {
+      "types": "./.types/constants/index.d.ts",
+      "default": "./constants/index.ts"
+    },
+    "./types": {
+      "types": "./.types/types/index.d.ts",
+      "default": "./types/index.ts"
+    },
+    "./i18n": {
+      "types": "./.types/i18n/index.d.ts",
+      "default": "./i18n/index.ts"
+    }
   }
 }

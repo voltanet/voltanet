@@ -5,10 +5,13 @@
   "scripts": {
     "format": "biome format --write",
     "check": "biome check --write",
-    "type-check": "tsgo --noEmit"
+    "type-check": "tsc"
   },
   "exports": {
-    ".": "./validation.ts"
+    ".": {
+      "types": "./.types/validation.d.ts",
+      "default": "./validation.ts"
+    }
   },
   "devDependencies": {
     "@repo/shared": "workspace:*",

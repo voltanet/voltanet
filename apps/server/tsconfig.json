@@ -5,6 +5,7 @@
     "tsBuildInfoFile": "node_modules/server.tsbuildinfo",
     "declaration": true,
     "emitDeclarationOnly": true,
+    "declarationDir": ".types",
     "composite": true,
     "noEmit": false,
     "paths": {

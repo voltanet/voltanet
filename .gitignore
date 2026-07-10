@@ -18,6 +18,7 @@ yarn-debug.*
 yarn-error.*
 
 # local builds
+.types/
 dist/
 standalone/
 data/

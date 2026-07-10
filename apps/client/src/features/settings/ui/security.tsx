@@ -11,9 +11,8 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { Session } from "better-auth";
 import dayjs from "dayjs";
-import { auth } from "@/features/auth";
+import { auth, type Session } from "@/features/auth";
 import { useNotify } from "@/hooks/use-notify";
 
 export const SecuritySettings = () => {
