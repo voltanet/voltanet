@@ -23,6 +23,13 @@
     "./i18n": {
       "types": "./.types/i18n/index.d.ts",
       "default": "./i18n/index.ts"
+    },
+    "./validation": {
+      "types": "./.types/validation/index.d.ts",
+      "default": "./validation/index.ts"
     }
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
   }
 }

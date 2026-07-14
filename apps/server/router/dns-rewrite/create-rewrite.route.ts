@@ -1,4 +1,4 @@
-import { createRewriteSchema } from "@repo/validation";
+import { createRewriteSchema } from "@repo/shared/validation";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";
 

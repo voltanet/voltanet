@@ -1,4 +1,4 @@
-import { blockListIdSchema } from "@repo/validation";
+import { blockListIdSchema } from "@repo/shared/validation";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";

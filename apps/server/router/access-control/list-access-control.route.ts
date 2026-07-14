@@ -3,7 +3,7 @@ import {
   listOutputSchema,
   metaSchema,
   paginationSchema,
-} from "@repo/validation";
+} from "@repo/shared/validation";
 import { like } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";

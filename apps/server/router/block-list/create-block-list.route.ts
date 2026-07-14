@@ -1,4 +1,4 @@
-import { createBlockListSchema } from "@repo/validation";
+import { createBlockListSchema } from "@repo/shared/validation";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";
 import { countBlockList } from "@/utils/count-block-list";

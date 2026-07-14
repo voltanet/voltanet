@@ -1,4 +1,4 @@
-import { updateProxyHostSchema } from "@repo/validation";
+import { updateProxyHostSchema } from "@repo/shared/validation";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";

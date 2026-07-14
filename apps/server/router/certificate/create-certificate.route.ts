@@ -1,4 +1,4 @@
-import { createCertificateSchema } from "@repo/validation";
+import { createCertificateSchema } from "@repo/shared/validation";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";
 import { handleFile } from "@/utils/handle-file";

@@ -23,7 +23,6 @@
         "@orpc/client": "^1.14.7",
         "@repo/server": "workspace:*",
         "@repo/shared": "workspace:*",
-        "@repo/validation": "workspace:*",
         "@tanstack/react-query": "^5.101.2",
         "@tanstack/react-router": "^1.170.17",
         "@tanstack/react-router-devtools": "^1.166.11",
@@ -52,7 +51,6 @@
         "@orpc/server": "^1.14.7",
         "@repo/database": "workspace:*",
         "@repo/shared": "workspace:*",
-        "@repo/validation": "workspace:*",
         "@types/bun": "^1.3.14",
         "better-auth": "^1.3.27",
         "drizzle-orm": "^0.45.2",
@@ -66,7 +64,6 @@
       "devDependencies": {
         "@libsql/client": "^0.17.4",
         "@repo/shared": "workspace:*",
-        "@repo/validation": "workspace:*",
         "@types/bun": "^1.3.14",
         "drizzle-kit": "^0.31.10",
         "drizzle-orm": "^0.45.2",
@@ -75,13 +72,8 @@
     "packages/shared": {
       "name": "@repo/shared",
       "version": "1.0.0",
-    },
-    "packages/validation": {
-      "name": "@repo/validation",
-      "version": "1.0.0",
-      "devDependencies": {
-        "@repo/shared": "workspace:*",
-        "zod": "^4.1.11",
+      "dependencies": {
+        "zod": "^4.4.3",
       },
     },
   },
@@ -357,8 +349,6 @@
     "@repo/server": ["@repo/server@workspace:apps/server"],
 
     "@repo/shared": ["@repo/shared@workspace:packages/shared"],
-
-    "@repo/validation": ["@repo/validation@workspace:packages/validation"],
 
     "@rolldown/binding-android-arm64": ["@rolldown/binding-android-arm64@1.1.5", "", { "os": "android", "cpu": "arm64" }, "sha512-lZg8fqIv2v7FF237bwMgzGZEJvGL79/s5knJ/i6FmsGF4XXlzccZ4jb+TrFIxtSSxFtIpdsgrPZeMk1I9AFcyQ=="],
 

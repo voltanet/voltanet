@@ -1,4 +1,4 @@
-import type { $PaginationSchema } from "@repo/validation";
+import type { $PaginationSchema } from "@repo/shared/validation";
 import { useLocation } from "@tanstack/react-router";
 import { atom, useAtom } from "jotai";
 import { useEffect } from "react";

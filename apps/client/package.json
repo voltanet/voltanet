@@ -20,7 +20,6 @@
     "@orpc/client": "^1.14.7",
     "@repo/server": "workspace:*",
     "@repo/shared": "workspace:*",
-    "@repo/validation": "workspace:*",
     "@tanstack/react-query": "^5.101.2",
     "@tanstack/react-router": "^1.170.17",
     "@tanstack/react-router-devtools": "^1.166.11",

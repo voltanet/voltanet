@@ -1,4 +1,4 @@
-import { accessControlIdSchema } from "@repo/validation";
+import { accessControlIdSchema } from "@repo/shared/validation";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";

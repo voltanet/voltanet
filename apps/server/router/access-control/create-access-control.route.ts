@@ -1,4 +1,4 @@
-import { createAccessControlSchema } from "@repo/validation";
+import { createAccessControlSchema } from "@repo/shared/validation";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";
 

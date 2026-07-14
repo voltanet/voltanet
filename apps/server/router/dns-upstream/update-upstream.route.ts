@@ -1,4 +1,4 @@
-import { updateUpstreamSchema } from "@repo/validation";
+import { updateUpstreamSchema } from "@repo/shared/validation";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";

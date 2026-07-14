@@ -1,5 +1,5 @@
 import { Alert, Button, Card, Stack, TextInput } from "@mantine/core";
-import { updateDetailsSchema } from "@repo/validation";
+import { updateDetailsSchema } from "@repo/shared/validation";
 import { Iconify } from "@/components/iconify";
 import { auth } from "@/features/auth";
 import { useFormMutation } from "@/hooks/use-form-mutation";

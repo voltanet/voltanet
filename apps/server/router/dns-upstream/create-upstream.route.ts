@@ -1,4 +1,4 @@
-import { createUpstreamSchema } from "@repo/validation";
+import { createUpstreamSchema } from "@repo/shared/validation";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";
 

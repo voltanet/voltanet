@@ -1,4 +1,4 @@
-import { updateRewriteSchema } from "@repo/validation";
+import { updateRewriteSchema } from "@repo/shared/validation";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";

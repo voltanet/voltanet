@@ -1,4 +1,4 @@
-import { updateCertificateSchema } from "@repo/validation";
+import { updateCertificateSchema } from "@repo/shared/validation";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";

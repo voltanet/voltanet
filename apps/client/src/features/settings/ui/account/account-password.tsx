@@ -1,5 +1,5 @@
 import { Alert, Button, Card, Checkbox, PasswordInput, Stack } from "@mantine/core";
-import { updatePasswordSchema } from "@repo/validation";
+import { updatePasswordSchema } from "@repo/shared/validation";
 import { useQueryClient } from "@tanstack/react-query";
 import { auth } from "@/features/auth";
 import { useFormMutation } from "@/hooks/use-form-mutation";
