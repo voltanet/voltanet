@@ -18,15 +18,15 @@ export const Controls = ({ refetch, loading }: $Controls) => {
 
   const directionIcon =
     direction === "desc"
-      ? "solar:sort-from-top-to-bottom-bold"
-      : "solar:sort-from-bottom-to-top-bold";
+      ? "@vite:solar:sort-from-top-to-bottom-bold"
+      : "@vite:solar:sort-from-bottom-to-top-bold";
 
   return (
     <Stack>
       <TextInput
         type="search"
         placeholder="Search"
-        leftSection={<Iconify icon="solar:filter-bold" />}
+        leftSection={<Iconify icon="@vite:solar:filter-bold" />}
         onChange={(e) => setSearch(e.target.value)}
       />
       <Group justify="flex-end" gap={15}>
@@ -50,7 +50,7 @@ export const Controls = ({ refetch, loading }: $Controls) => {
           </ActionIcon>
         </ActionIcon.Group>
         <ActionIcon title="Refresh" onClick={refetch} loading={loading}>
-          <Iconify width={20} icon="solar:refresh-bold" />
+          <Iconify width={20} icon="@vite:solar:refresh-bold" />
         </ActionIcon>
       </Group>
     </Stack>

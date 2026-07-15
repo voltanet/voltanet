@@ -1,26 +1,10 @@
-import { addAPIProvider, Icon, type IconifyIcon, type IconProps, loadIcon } from "@iconify/react";
-import { useMemo, useState } from "react";
-
-addAPIProvider("local", {
-  resources: [location.origin],
-  path: "/api/icons/",
-});
+import { icons } from "virtual:iconify";
+import { Icon, type IconifyIcon, type IconProps } from "@iconify/react";
 
 export type $Iconify = IconProps & { icon: string };
 
-export const Iconify = ({ icon, ...props }: $Iconify) => {
-  const [data, setData] = useState<Required<IconifyIcon> | string>("");
-  useMemo(() => iconLoader(icon).then(setData), [icon]);
-
-  return <Icon {...props} icon={data} />;
+export const Iconify = ({ icon, width = 20, height, ...props }: $Iconify) => {
+  const data = icons[icon] as IconifyIcon | undefined;
+  if (!data) throw new Error(`Missing bundled icon: ${icon}`);
+  return <Icon {...props} width={width} height={height} icon={data} />;
 };
-
-const iconLoader = async (icon: string) =>
-  new Promise<Required<IconifyIcon>>((resolve) => {
-    const cached = localStorage.getItem(`iconify$${icon}`);
-    if (cached) return resolve(JSON.parse(cached));
-    loadIcon(icon.startsWith("solar:") ? `@local:${icon}` : icon).then((data) => {
-      localStorage.setItem(`iconify$${icon}`, JSON.stringify(data));
-      resolve(data);
-    });
-  });

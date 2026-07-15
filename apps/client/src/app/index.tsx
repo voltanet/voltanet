@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
             <Anchor key={page.to} component={Link} to={page.to} underline="never">
               <Card component={Stack} align="center" style={{ zoom: isMobile ? 0.8 : 1 }}>
                 <ThemeIcon size={100} color={page.color} variant="light">
-                  <Iconify height={50} icon={page.icon} />
+                  <Iconify width={50} icon={page.icon} />
                 </ThemeIcon>
                 <Text fw="bold" fz="lg" ta="center">
                   {page.label}

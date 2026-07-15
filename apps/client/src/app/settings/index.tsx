@@ -7,7 +7,7 @@ export const Route = createFileRoute("/settings/")({
   head: () => ({ meta: [{ title: `Appearance | ${CONFIG.title}` }] }),
   component: () => {
     return (
-      <PageLayout label="Appearance" icon="solar:laptop-minimalistic-bold">
+      <PageLayout label="Appearance" icon="@vite:solar:laptop-minimalistic-bold">
         <AppearanceSettings />
       </PageLayout>
     );

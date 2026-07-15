@@ -41,14 +41,14 @@ export const AccountDetails = () => {
         <TextInput
           label="Name"
           placeholder="Enter your full name"
-          leftSection={<Iconify icon="solar:user-bold" />}
+          leftSection={<Iconify icon="@vite:solar:user-bold" />}
           {...form.getInputProps("name")}
           key={form.key("name")}
           variant="filled"
         />
         <TextInput
           label="Email Address"
-          leftSection={<Iconify width={20} icon="solar:letter-bold" />}
+          leftSection={<Iconify width={20} icon="@vite:solar:letter-bold" />}
           value={session.user.email}
           disabled
         />

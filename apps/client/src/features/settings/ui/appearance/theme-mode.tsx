@@ -15,9 +15,9 @@ export const ThemeMode = () => {
 };
 
 const modes = [
-  { value: "auto", label: "Auto", icon: "solar:mirror-left-bold" },
-  { value: "dark", label: "Dark", icon: "solar:moon-bold" },
-  { value: "light", label: "Light", icon: "solar:sun-2-bold" },
+  { value: "auto", label: "Auto", icon: "@vite:radix-icons:half-2" },
+  { value: "dark", label: "Dark", icon: "@vite:tabler:moon" },
+  { value: "light", label: "Light", icon: "@vite:tabler:sun" },
 ].map(({ label, value, icon }) => ({
   value,
   label: (

@@ -7,7 +7,7 @@ export const Route = createFileRoute("/settings/security")({
   head: () => ({ meta: [{ title: `Security | ${CONFIG.title}` }] }),
   component: () => {
     return (
-      <PageLayout label="Security" icon="solar:shield-bold">
+      <PageLayout label="Security" icon="@vite:solar:shield-bold">
         <SecuritySettings />
       </PageLayout>
     );

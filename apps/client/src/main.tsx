@@ -2,6 +2,7 @@ import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { ErrorOverlay, NotFoundOverlay } from "./components/overlay";
+import { Providers } from "./components/providers";
 import { auth } from "./features/auth";
 import { routeTree } from "./routeTree.gen";
 
@@ -26,7 +27,9 @@ const App = () => {
 
   return (
     <StrictMode key={session?.session.id}>
-      <RouterProvider router={router} context={{ session }} />
+      <Providers>
+        <RouterProvider router={router} context={{ session }} />
+      </Providers>
     </StrictMode>
   );
 };

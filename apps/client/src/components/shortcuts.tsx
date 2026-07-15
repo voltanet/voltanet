@@ -35,9 +35,9 @@ export const ShortcutsToggle = () => {
   return (
     <Menu.Item
       onClick={() => setOpened(!opened)}
-      leftSection={<Iconify width={20} icon="solar:keyboard-bold" />}
+      leftSection={<Iconify width={20} icon="@vite:solar:keyboard-bold" />}
     >
-      "Keyboard Shortcuts"
+      Keyboard Shortcuts
     </Menu.Item>
   );
 };

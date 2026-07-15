@@ -27,22 +27,27 @@ export const HeaderMenu = () => {
         </Group>
         <Menu.Divider />
         <Anchor component={Link} to="/settings/account" underline="never">
-          <Menu.Item leftSection={<Iconify width={20} icon="solar:user-bold" />}>Account</Menu.Item>
+          <Menu.Item leftSection={<Iconify width={20} icon="@vite:solar:user-bold" />}>
+            Account
+          </Menu.Item>
         </Anchor>
         <Anchor component={Link} to="/logs" underline="never">
-          <Menu.Item leftSection={<Iconify width={20} icon="solar:history-bold" />}>
+          <Menu.Item leftSection={<Iconify width={20} icon="@vite:solar:history-bold" />}>
             Activity Logs
           </Menu.Item>
         </Anchor>
         <Anchor component={Link} to="/settings" underline="never">
-          <Menu.Item leftSection={<Iconify width={20} icon="solar:settings-bold" />}>
+          <Menu.Item leftSection={<Iconify width={20} icon="@vite:solar:settings-bold" />}>
             Settings
           </Menu.Item>
         </Anchor>
         <MoreInfoMenu />
         <Menu.Divider />
         <Logout>
-          <Menu.Item color="red" leftSection={<Iconify width={20} icon="solar:logout-3-bold" />}>
+          <Menu.Item
+            color="red"
+            leftSection={<Iconify width={20} icon="@vite:solar:logout-3-bold" />}
+          >
             Sign Out
           </Menu.Item>
         </Logout>
@@ -55,25 +60,25 @@ const MoreInfoMenu = () => {
   return (
     <Menu.Sub position="bottom-end" offset={10} closeDelay={200}>
       <Menu.Sub.Target>
-        <Menu.Sub.Item leftSection={<Iconify width={20} icon="solar:info-circle-bold" />}>
+        <Menu.Sub.Item leftSection={<Iconify width={20} icon="@vite:solar:info-circle-bold" />}>
           More Info
         </Menu.Sub.Item>
       </Menu.Sub.Target>
       <Menu.Sub.Dropdown>
         <Anchor component={Link} to="/about" underline="never">
-          <Menu.Item leftSection={<Iconify width={20} icon="solar:info-circle-bold" />}>
+          <Menu.Item leftSection={<Iconify width={20} icon="@vite:solar:info-circle-bold" />}>
             About
           </Menu.Item>
         </Anchor>
         <Menu.Divider />
         <ShortcutsToggle />
         <Anchor href="https://voltanet.github.io" target="_blank" underline="never">
-          <Menu.Item leftSection={<Iconify width={20} icon="solar:book-bold" />}>
+          <Menu.Item leftSection={<Iconify width={20} icon="@vite:solar:book-bold" />}>
             Documentation
           </Menu.Item>
         </Anchor>
         <Anchor href="https://github.com/voltanet/voltanet" target="_blank" underline="never">
-          <Menu.Item leftSection={<Iconify width={20} icon="solar:code-bold" />}>
+          <Menu.Item leftSection={<Iconify width={20} icon="@vite:solar:code-bold" />}>
             Source Code
           </Menu.Item>
         </Anchor>

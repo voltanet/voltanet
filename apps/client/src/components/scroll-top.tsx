@@ -12,7 +12,7 @@ export const ScrollTop = () => {
       <Transition transition="slide-up" mounted={scroll.y > 0}>
         {(style) => (
           <ActionIcon variant="default" size="lg" onClick={top} style={style}>
-            <Iconify width={20} icon="solar:alt-arrow-up-bold" />
+            <Iconify width={20} icon="@vite:solar:alt-arrow-up-bold" />
           </ActionIcon>
         )}
       </Transition>

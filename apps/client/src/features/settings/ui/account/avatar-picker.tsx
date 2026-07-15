@@ -37,7 +37,7 @@ export const AvatarPicker = ({ name, ...props }: $AvatarPicker) => {
         <SimpleGrid cols={{ base: 3, xs: 4 }} w="fit-content">
           <ActionIcon variant="light" size="100%" onClick={() => handleSelect(null)}>
             <Stack gap={5} align="center">
-              <Iconify width="60%" icon="solar:gallery-remove-bold" />
+              <Iconify width="60%" icon="@vite:solar:gallery-remove-bold" />
               <Text size="xs" c="dimmed">
                 Remove
               </Text>

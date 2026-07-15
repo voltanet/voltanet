@@ -5,9 +5,9 @@ export const ThemeSwitcher = () => {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
 
   const schemes = [
-    ["Auto", "solar:mirror-left-bold"],
-    ["Dark", "solar:moon-bold"],
-    ["Light", "solar:sun-2-bold"],
+    ["Auto", "@vite:radix-icons:half-2"],
+    ["Dark", "@vite:tabler:moon"],
+    ["Light", "@vite:tabler:sun"],
   ].map(([title, icon]) => ({
     icon: <Iconify height={20} icon={icon} />,
     value: title.toLowerCase() as MantineColorScheme,
