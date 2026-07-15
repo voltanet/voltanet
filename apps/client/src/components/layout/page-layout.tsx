@@ -18,12 +18,12 @@ export const PageLayout = (props: $PageLayout) => {
           <Group gap={15}>
             {props.withBack && (
               <ActionIcon variant="default" size="lg" onClick={() => history.back()}>
-                <Iconify width={20} icon="@vite:solar:arrow-left-outline" />
+                <Iconify icon="@vite:solar:arrow-left-outline" />
               </ActionIcon>
             )}
             {props.icon && !props.withBack && (
               <ThemeIcon variant="light" size="lg">
-                <Iconify width={20} icon={props.icon} />
+                <Iconify icon={props.icon} />
               </ThemeIcon>
             )}
             <Title order={2}>{props.label}</Title>

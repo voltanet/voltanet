@@ -19,7 +19,7 @@ export const NavItem = ({ to, icon, label, list }: Page) => {
       label={label}
       component={Link}
       activeOptions={{ exact: true }}
-      leftSection={<Iconify width={20} icon={icon} />}
+      leftSection={<Iconify icon={icon} />}
       onClick={() => setOpened((prev) => !prev)}
       style={{ borderRadius: 10 }}
       active={pathname === to}

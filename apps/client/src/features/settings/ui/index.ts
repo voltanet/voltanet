@@ -1,3 +1,3 @@
 export * from "./account";
-export * from "./appearance";
+export * from "./general";
 export * from "./security";

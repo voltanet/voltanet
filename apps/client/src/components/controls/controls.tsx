@@ -1,5 +1,4 @@
 import { ActionIcon, Group, Select, Stack, Text, TextInput } from "@mantine/core";
-import { useDebouncedCallback } from "@mantine/hooks";
 import { Iconify } from "@/components/iconify";
 import { ControlsPagination } from "./pagination";
 import { useControls } from "./use-controls";
@@ -7,17 +6,10 @@ import { useControls } from "./use-controls";
 type $Controls = { refetch: () => Promise<void>; loading: boolean };
 
 export const Controls = ({ refetch, loading }: $Controls) => {
-  const [{ direction, sort }, setControls] = useControls();
-  const setSearch = useDebouncedCallback(
-    (search: string) => setControls((prev) => ({ ...prev, search })),
-    500,
-  );
-
-  const toggleDirection = () =>
-    setControls((prev) => ({ ...prev, direction: prev.direction === "asc" ? "desc" : "asc" }));
+  const state = useControls();
 
   const directionIcon =
-    direction === "desc"
+    state.direction === "desc"
       ? "@vite:solar:sort-from-top-to-bottom-bold"
       : "@vite:solar:sort-from-bottom-to-top-bold";
 
@@ -26,8 +18,9 @@ export const Controls = ({ refetch, loading }: $Controls) => {
       <TextInput
         type="search"
         placeholder="Search"
-        leftSection={<Iconify icon="@vite:solar:filter-bold" />}
-        onChange={(e) => setSearch(e.target.value)}
+        leftSection={<Iconify icon="@vite:tabler:search" />}
+        onChange={(e) => state.setSearch(e.target.value)}
+        value={state.search}
       />
       <Group justify="flex-end" gap={15}>
         <Text>Sort by:</Text>
@@ -38,19 +31,23 @@ export const Controls = ({ refetch, loading }: $Controls) => {
             defaultValue="updatedAt"
             checkIconPosition="right"
             styles={{ input: { borderRadius: "10px 0 0 10px" } }}
-            onChange={(value) => setControls((prev) => ({ ...prev, sort: value as typeof sort }))}
+            onChange={(value) => state.setSort(value as typeof state.sort)}
+            value={state.sort}
             data={[
               { value: "updatedAt", label: "Update Time" },
               { value: "createdAt", label: "Create Time" },
               { value: "name", label: "Name" },
             ]}
           />
-          <ActionIcon title="Sort direction" onClick={toggleDirection}>
-            <Iconify width={20} icon={directionIcon} flip="horizontal" />
+          <ActionIcon
+            title="Sort direction"
+            onClick={() => state.setDirection(state.direction === "asc" ? "desc" : "asc")}
+          >
+            <Iconify icon={directionIcon} flip="horizontal" />
           </ActionIcon>
         </ActionIcon.Group>
         <ActionIcon title="Refresh" onClick={refetch} loading={loading}>
-          <Iconify width={20} icon="@vite:solar:refresh-bold" />
+          <Iconify icon="@vite:solar:refresh-bold" />
         </ActionIcon>
       </Group>
     </Stack>

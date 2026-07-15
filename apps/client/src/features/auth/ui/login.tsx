@@ -30,7 +30,7 @@ export const LoginForm = () => {
           type="email"
           label="Email"
           placeholder="Enter your email"
-          leftSection={<Iconify width={20} icon="@vite:solar:letter-bold" />}
+          leftSection={<Iconify icon="@vite:solar:letter-bold" />}
           {...form.getInputProps("email")}
           key={form.key("email")}
           size="lg"
@@ -38,7 +38,7 @@ export const LoginForm = () => {
         <PasswordInput
           label="Password"
           placeholder="Enter your password"
-          leftSection={<Iconify width={20} icon="@vite:solar:lock-password-bold" />}
+          leftSection={<Iconify icon="@vite:solar:lock-password-bold" />}
           {...form.getInputProps("password")}
           key={form.key("password")}
           size="lg"

@@ -48,7 +48,7 @@ export const AccountDetails = () => {
         />
         <TextInput
           label="Email Address"
-          leftSection={<Iconify width={20} icon="@vite:solar:letter-bold" />}
+          leftSection={<Iconify icon="@vite:solar:letter-bold" />}
           value={session.user.email}
           disabled
         />

@@ -4,7 +4,6 @@ export type Page = {
   icon: string;
   color?: string;
   list?: Page[];
-  hideFrom?: "nav" | "home";
 };
 
 export const PAGES = {
@@ -13,42 +12,62 @@ export const PAGES = {
     {
       to: "/",
       label: "Home",
-      color: "teal",
       icon: "@vite:solar:home-smile-bold",
-      hideFrom: "home",
+      color: "teal",
     },
-    { to: "/logs", label: "Activity Logs", color: "violet", icon: "@vite:solar:history-bold" },
+    {
+      to: "/activity",
+      label: "Activity Logs",
+      icon: "@vite:solar:history-bold",
+      color: "violet",
+    },
+    {
+      to: "/settings",
+      label: "Settings",
+      icon: "@vite:solar:settings-bold",
+      color: "blue",
+    },
   ],
   // ========== Proxy ==========
   "Reverse Proxy": [
-    { to: "/proxy-hosts", label: "Proxy Hosts", color: "red", icon: "@vite:solar:global-bold" },
+    {
+      to: "/proxy-hosts",
+      label: "Proxy Hosts",
+      icon: "@vite:solar:global-bold",
+      color: "red",
+    },
     {
       to: "/access-control",
       label: "Access Control",
-      color: "green",
       icon: "@vite:solar:shield-user-bold",
+      color: "green",
     },
     {
       to: "/certificates",
       label: "Certificates",
-      color: "yellow",
       icon: "@vite:solar:book-bookmark-bold",
+      color: "yellow",
     },
   ],
   // ========== DNS ==========
   "DNS Management": [
-    { to: "/dns-rewrites", label: "DNS Rewrites", color: "cyan", icon: "@vite:solar:route-bold" },
+    {
+      to: "/dns-rewrites",
+      label: "DNS Rewrites",
+      icon: "@vite:solar:route-bold",
+      color: "cyan",
+    },
     {
       to: "/dns-upstreams",
       label: "DNS Upstreams",
-      color: "orange",
       icon: "@vite:solar:cloud-upload-bold",
+      color: "orange",
     },
     {
       to: "/block-lists",
       label: "Block Lists",
-      color: "teal",
       icon: "@vite:solar:shield-cross-bold",
+      color: "teal",
     },
   ],
 } as const satisfies Record<string, Page[]>;

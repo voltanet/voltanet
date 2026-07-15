@@ -3,13 +3,14 @@ import { useMediaQuery } from "@mantine/hooks";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Iconify } from "@/components/iconify";
 import { PageLayout } from "@/components/layout";
-import { CONFIG, PAGES_FLAT } from "@/features/const";
+import { CONFIG, getPage, PAGES_FLAT } from "@/features/const";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [{ title: `Home | ${CONFIG.title}` }] }),
   component: () => {
-    const [page, , ...pages] = PAGES_FLAT;
     const isMobile = useMediaQuery("(max-width: 450px)");
+    const pages = PAGES_FLAT.slice(3);
+    const page = getPage("/");
 
     return (
       <PageLayout icon={page.icon} label={page.label}>

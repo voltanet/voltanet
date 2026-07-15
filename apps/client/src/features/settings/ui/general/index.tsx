@@ -6,7 +6,7 @@ import { ThemeMode } from "./theme-mode";
 
 export { TextStyleLoader } from "./text-style";
 
-export const AppearanceSettings = () => {
+export const GeneralSettings = () => {
   return (
     <Stack>
       <Card component={Stack} gap={5}>
