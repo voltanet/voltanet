@@ -1,7 +1,7 @@
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { iconify } from "@/utils/iconify-plugin";
+import { iconify } from "./src/utils/iconify-plugin";
 
 const routerOptions = {
   routesDirectory: "./src/app",

@@ -22,7 +22,6 @@
     }
   },
   "devDependencies": {
-    "@iconify-json/solar": "^1.2.5",
     "@orpc/client": "^1.14.0",
     "@orpc/server": "^1.14.7",
     "@repo/database": "workspace:*",

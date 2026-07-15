@@ -19,7 +19,6 @@ try {
     .use(serveStatic({ root: "./client" })) // Serve client
     .use(logger(isProd ? () => {} : console.log)) // Dev Logger
     .use("/api/auth/*", (c) => auth.handler(c.req.raw)) // Auth routes
-    .use("/api/icons/:prefix", router.icons) // Serve icons
     .use("/api/*", router.api) // API routes
     .notFound(async (c) => {
       const client = Bun.file("./client/index.html");

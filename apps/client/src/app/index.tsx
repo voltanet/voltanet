@@ -6,7 +6,7 @@ import { PageLayout } from "@/components/layout";
 import { CONFIG, PAGES_FLAT } from "@/features/const";
 
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: `Dashboard | ${CONFIG.title}` }] }),
+  head: () => ({ meta: [{ title: `Home | ${CONFIG.title}` }] }),
   component: () => {
     const [page, , ...pages] = PAGES_FLAT;
     const isMobile = useMediaQuery("(max-width: 450px)");

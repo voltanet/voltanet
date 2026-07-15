@@ -3,7 +3,6 @@ import { createMiddleware } from "hono/factory";
 import { router } from "./router";
 
 export * from "./base";
-export * from "./core/icons.route";
 
 // Base API routes
 export const api = createMiddleware(async (c, next) => {
