@@ -13,8 +13,8 @@ type $PageLayout = {
 export const PageLayout = (props: $PageLayout) => {
   return (
     <Stack>
-      <Group align="flex-start" mb={5}>
-        <Stack flex={1} gap={10}>
+      <Stack gap={5}>
+        <Group justify="space-between">
           <Group gap={15}>
             {props.withBack && (
               <ActionIcon variant="default" size="lg" onClick={() => history.back()}>
@@ -26,12 +26,14 @@ export const PageLayout = (props: $PageLayout) => {
                 <Iconify icon={props.icon} />
               </ThemeIcon>
             )}
-            <Title order={2}>{props.label}</Title>
+            <Title order={2} pt={5}>
+              {props.label}
+            </Title>
           </Group>
-          {props.description && <Text c="dimmed">{props.description}</Text>}
-        </Stack>
-        {props.action}
-      </Group>
+          {props.action}
+        </Group>
+        {props.description && <Text c="dimmed">{props.description}</Text>}
+      </Stack>
       {props.children}
       <Stack h={60} />
     </Stack>

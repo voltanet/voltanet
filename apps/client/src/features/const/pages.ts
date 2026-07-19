@@ -31,19 +31,19 @@ export const PAGES = {
   // ========== Proxy ==========
   "Reverse Proxy": [
     {
-      to: "/proxy-hosts",
+      to: "/proxy/hosts",
       label: "Proxy Hosts",
       icon: "@vite:solar:global-bold",
       color: "red",
     },
     {
-      to: "/access-control",
+      to: "/proxy/access",
       label: "Access Control",
       icon: "@vite:solar:shield-user-bold",
       color: "green",
     },
     {
-      to: "/certificates",
+      to: "/proxy/certificates",
       label: "Certificates",
       icon: "@vite:solar:book-bookmark-bold",
       color: "yellow",
@@ -52,19 +52,19 @@ export const PAGES = {
   // ========== DNS ==========
   "DNS Management": [
     {
-      to: "/dns-rewrites",
+      to: "/dns/rewrites",
       label: "DNS Rewrites",
       icon: "@vite:solar:route-bold",
       color: "cyan",
     },
     {
-      to: "/dns-upstreams",
+      to: "/dns/upstreams",
       label: "DNS Upstreams",
       icon: "@vite:solar:cloud-upload-bold",
       color: "orange",
     },
     {
-      to: "/block-lists",
+      to: "/dns/block-lists",
       label: "Block Lists",
       icon: "@vite:solar:shield-cross-bold",
       color: "teal",
