@@ -9,8 +9,8 @@
     "build": "turbo build",
     "start": "turbo start",
     "format": "biome format --write",
-    "check": "biome check --write",
-    "type-check": "turbo type-check",
+    "check:code": "biome check --write",
+    "check:types": "turbo check:types",
     "turbo": "turbo"
   },
   "devDependencies": {

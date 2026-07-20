@@ -12,7 +12,7 @@
     "db:migrate": { "dependsOn": ["^db:migrate"] },
     "db:studio": { "dependsOn": ["^db:studio"] },
     "format": { "dependsOn": ["^format"] },
-    "check": { "dependsOn": ["^check"] },
-    "type-check": { "dependsOn": ["^type-check"] }
+    "check:code": { "dependsOn": ["^check:code"] },
+    "check:types": { "dependsOn": ["^check:types"] }
   }
 }

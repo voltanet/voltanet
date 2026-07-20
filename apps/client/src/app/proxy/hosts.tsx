@@ -3,11 +3,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/layout";
 import { CONFIG, getPage } from "@/features/const";
 
-export const Route = createFileRoute("/proxy/hosts")({
-  head: () => ({ meta: [{ title: `Proxy Hosts | ${CONFIG.title}` }] }),
-  component: () => {
-    const page = getPage("/proxy/hosts");
+const page = getPage("/proxy/hosts");
 
+export const Route = createFileRoute(page.to)({
+  head: () => ({ meta: [{ title: `${page.label} | ${CONFIG.title}` }] }),
+  component: () => {
     return (
       <PageLayout
         icon={page.icon}

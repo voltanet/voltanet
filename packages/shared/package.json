@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "format": "biome format --write",
-    "check": "biome check --write",
-    "type-check": "tsc"
+    "check:code": "biome check --write",
+    "check:types": "tsc"
   },
   "exports": {
     ".": {

@@ -84,9 +84,9 @@ bun turbo build        # Build all packages
 bun turbo start        # Start the last build
 
 # Code quality
-bun turbo check        # Lint code
 bun turbo format       # Format files
-bun turbo type-check   # Check typescript types
+bun turbo check:code   # Lint code
+bun turbo check:types  # Check typescript types
 
 # More database operations
 bun turbo db:seed      # Apply database defaults

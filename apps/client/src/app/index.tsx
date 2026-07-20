@@ -5,12 +5,13 @@ import { Iconify } from "@/components/iconify";
 import { PageLayout } from "@/components/layout";
 import { CONFIG, getPage, PAGES_FLAT } from "@/features/const";
 
-export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: `Home | ${CONFIG.title}` }] }),
+const page = getPage("/");
+const pages = PAGES_FLAT.slice(3);
+
+export const Route = createFileRoute(page.to)({
+  head: () => ({ meta: [{ title: `${page.label} | ${CONFIG.title}` }] }),
   component: () => {
     const isMobile = useMediaQuery("(max-width: 450px)");
-    const pages = PAGES_FLAT.slice(3);
-    const page = getPage("/");
 
     return (
       <PageLayout icon={page.icon} label={page.label}>

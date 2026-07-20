@@ -4,10 +4,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/layout";
 import { CONFIG, getPage } from "@/features/const";
 
-export const Route = createFileRoute("/activity")({
-  head: () => ({ meta: [{ title: `Activity Logs | ${CONFIG.title}` }] }),
+const page = getPage("/activity");
+
+export const Route = createFileRoute(page.to)({
+  head: () => ({ meta: [{ title: `${page.label} | ${CONFIG.title}` }] }),
   component: () => {
-    const page = getPage("/activity");
     const [view, setView] = useLocalStorage({ key: "activity-view", defaultValue: "Activity" });
 
     return (

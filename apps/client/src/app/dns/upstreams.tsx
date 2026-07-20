@@ -3,11 +3,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/layout";
 import { CONFIG, getPage } from "@/features/const";
 
-export const Route = createFileRoute("/dns/upstreams")({
-  head: () => ({ meta: [{ title: `DNS Upstreams | ${CONFIG.title}` }] }),
-  component: () => {
-    const page = getPage("/dns/upstreams");
+const page = getPage("/dns/upstreams");
 
+export const Route = createFileRoute(page.to)({
+  head: () => ({ meta: [{ title: `${page.label} | ${CONFIG.title}` }] }),
+  component: () => {
     return (
       <PageLayout
         icon={page.icon}

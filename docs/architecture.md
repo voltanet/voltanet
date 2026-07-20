@@ -210,10 +210,10 @@ bun install
 bun turbo dev
 
 # Type checking
-bun turbo type-check
+bun turbo check:types
 
 # Linting/Formatting
-bun turbo check
+bun turbo check:code
 bun turbo format
 ```
 
