@@ -1,5 +1,5 @@
-import type { Session, User } from "@repo/server/auth";
 import { redirect } from "@tanstack/react-router";
+import type { Session, User } from "@/features/auth";
 
 export type AuthSession = null | {
   session: Session;

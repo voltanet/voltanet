@@ -7,6 +7,7 @@ type $TextareaReader = TextareaProps & UseUncontrolledOptions<string>;
 export const TextareaReader = (props: $TextareaReader) => {
   const [value, setValue] = useUncontrolled(props);
 
+  const bottom = props.error ? 30 : 10;
   const handleRead = (payload: File | null) => {
     if (!payload) return;
     const reader = new FileReader();
@@ -28,7 +29,7 @@ export const TextareaReader = (props: $TextareaReader) => {
       />
       <FileButton onChange={handleRead}>
         {(props) => (
-          <ActionIcon variant="light" {...props} pos="absolute" bottom={10} right={10}>
+          <ActionIcon variant="light" {...props} pos="absolute" bottom={bottom} right={10}>
             <Iconify icon="@vite:solar:upload-bold" />
           </ActionIcon>
         )}

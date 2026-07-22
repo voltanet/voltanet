@@ -3,13 +3,9 @@ import { useFontFamily } from "@/features/settings";
 
 export const TextStyleLoader = () => {
   const [value] = useFontFamily();
+  const font = value.replace(" ", "-").toLowerCase();
 
-  return (
-    <link
-      rel="stylesheet"
-      href={`https://fonts.googleapis.com/css2?family=${value.replace(" ", "+")}:wght@400;700;900&display=swap`}
-    />
-  );
+  return <link rel="stylesheet" href={`/fonts/${font}/style.css`} />;
 };
 
 export const TextStyle = () => {

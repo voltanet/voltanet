@@ -1,4 +1,5 @@
 import {
+  Card,
   Divider,
   Group,
   Kbd,
@@ -64,14 +65,16 @@ export const ShortcutsView = () => {
 
   return (
     <Modal title="Keyboard Shortcuts" opened={opened} onClose={() => setOpened(false)}>
-      <Stack gap={15}>
-        {shortcuts.map((shortcut, index) => (
-          <Fragment key={shortcut.label}>
-            {index > 0 && <Divider />}
-            <Shortcut label={shortcut.label} keys={shortcut.keys} />
-          </Fragment>
-        ))}
-      </Stack>
+      <Card>
+        <Stack gap={15}>
+          {shortcuts.map((shortcut, index) => (
+            <Fragment key={shortcut.label}>
+              {index > 0 && <Divider />}
+              <Shortcut label={shortcut.label} keys={shortcut.keys} />
+            </Fragment>
+          ))}
+        </Stack>
+      </Card>
     </Modal>
   );
 };

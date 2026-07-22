@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "bunx -b vite",
     "build": "bunx -b vite build",
-    "start": "vite preview",
+    "start": "vite preview --port 3000",
     "format": "biome format --write",
     "check:code": "biome check --write",
     "check:types": "tsc --noEmit"

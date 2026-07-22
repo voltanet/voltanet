@@ -27,6 +27,7 @@ export const UpdateCertificate = ({ children, item }: $UpdateCertificate) => {
               placeholder="Enter certificate name"
               {...form.getInputProps("name")}
               key={form.key("name")}
+              withAsterisk
             />
             <DatePickerInput
               label="Expiration Date"
@@ -40,12 +41,14 @@ export const UpdateCertificate = ({ children, item }: $UpdateCertificate) => {
               placeholder="Enter certificate content"
               {...form.getInputProps("cert")}
               key={form.key("cert")}
+              withAsterisk
             />
             <TextareaReader
               label="Private Key"
               placeholder="Enter private key content"
               {...form.getInputProps("key")}
               key={form.key("key")}
+              withAsterisk
             />
             <Group gap={15} justify="flex-end">
               <Button onClick={() => form.reset()}>Reset</Button>
