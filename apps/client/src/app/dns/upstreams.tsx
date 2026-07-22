@@ -5,7 +5,7 @@ import { CONFIG, getPage } from "@/features/const";
 
 const page = getPage("/dns/upstreams");
 
-export const Route = createFileRoute(page.to)({
+export const Route = createFileRoute("/dns/upstreams")({
   head: () => ({ meta: [{ title: `${page.label} | ${CONFIG.title}` }] }),
   component: () => {
     return (

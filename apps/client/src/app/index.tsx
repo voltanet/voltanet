@@ -8,7 +8,7 @@ import { CONFIG, getPage, PAGES_FLAT } from "@/features/const";
 const page = getPage("/");
 const pages = PAGES_FLAT.slice(3);
 
-export const Route = createFileRoute(page.to)({
+export const Route = createFileRoute("/")({
   head: () => ({ meta: [{ title: `${page.label} | ${CONFIG.title}` }] }),
   component: () => {
     const isMobile = useMediaQuery("(max-width: 450px)");

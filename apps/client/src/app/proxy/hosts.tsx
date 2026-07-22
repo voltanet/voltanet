@@ -5,7 +5,7 @@ import { CONFIG, getPage } from "@/features/const";
 
 const page = getPage("/proxy/hosts");
 
-export const Route = createFileRoute(page.to)({
+export const Route = createFileRoute("/proxy/hosts")({
   head: () => ({ meta: [{ title: `${page.label} | ${CONFIG.title}` }] }),
   component: () => {
     return (

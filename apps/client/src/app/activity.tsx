@@ -6,7 +6,7 @@ import { CONFIG, getPage } from "@/features/const";
 
 const page = getPage("/activity");
 
-export const Route = createFileRoute(page.to)({
+export const Route = createFileRoute("/activity")({
   head: () => ({ meta: [{ title: `${page.label} | ${CONFIG.title}` }] }),
   component: () => {
     const [view, setView] = useLocalStorage({ key: "activity-view", defaultValue: "Activity" });

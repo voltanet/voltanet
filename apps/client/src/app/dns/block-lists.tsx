@@ -5,7 +5,7 @@ import { CONFIG, getPage } from "@/features/const";
 
 const page = getPage("/dns/block-lists");
 
-export const Route = createFileRoute(page.to)({
+export const Route = createFileRoute("/dns/block-lists")({
   head: () => ({ meta: [{ title: `${page.label} | ${CONFIG.title}` }] }),
   component: () => {
     return (
