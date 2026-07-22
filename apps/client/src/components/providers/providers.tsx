@@ -12,7 +12,11 @@ import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
 import "@/assets/styles/global.scss";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: { retry: false },
+  },
+});
 
 dayjs.extend(relativeTime);
 

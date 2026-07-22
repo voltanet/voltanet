@@ -1,4 +1,4 @@
-import { Button, Card, Group, NumberInput, Pagination, Popover, Select } from "@mantine/core";
+import { Button, Card, Group, NumberInput, Pagination, Popover, Select, Text } from "@mantine/core";
 import { type UseUncontrolledOptions, useUncontrolled } from "@mantine/hooks";
 import { Activity, useState } from "react";
 import { useControls } from "./use-controls";
@@ -10,6 +10,7 @@ export const ControlsPagination = (props: { total: number }) => {
 
   return (
     <Group justify="flex-end" gap={15}>
+      <Text>Limit:</Text>
       <Select
         title="Limit"
         allowDeselect={false}

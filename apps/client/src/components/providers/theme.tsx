@@ -27,6 +27,14 @@ export const useAppTheme = () => {
         styles: { root: { overflow: "visible" } },
         defaultProps: { withBorder: true },
       }),
+      Drawer: Core.Drawer.extend({
+        defaultProps: {
+          overlayProps: { blur: 5 },
+          position: "right",
+          radius: "md",
+          offset: 10,
+        },
+      }),
       Modal: Core.Modal.extend({
         defaultProps: {
           overlayProps: { blur: 5 },

@@ -3,7 +3,7 @@ import { Iconify } from "@/components/iconify";
 import { ControlsPagination } from "./pagination";
 import { useControls } from "./use-controls";
 
-type $Controls = { refetch: () => Promise<void>; loading: boolean };
+type $Controls = { refetch: () => Promise<void> | void; loading: boolean };
 
 export const Controls = ({ refetch, loading }: $Controls) => {
   const state = useControls();
