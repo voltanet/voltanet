@@ -3,11 +3,7 @@
   "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "tsBuildInfoFile": "node_modules/shared.tsbuildinfo",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": ".types",
-    "composite": true,
-    "noEmit": false,
+    "noEmit": true,
     "paths": {
       "@/*": ["./*"]
     }

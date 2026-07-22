@@ -47,7 +47,8 @@ export const UpdateCertificate = ({ children, item }: $UpdateCertificate) => {
               {...form.getInputProps("key")}
               key={form.key("key")}
             />
-            <Group justify="flex-end">
+            <Group gap={15} justify="flex-end">
+              <Button onClick={() => form.reset()}>Reset</Button>
               <Button type="submit" variant="filled" loading={isPending}>
                 Save
               </Button>

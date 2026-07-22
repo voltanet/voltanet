@@ -9,17 +9,11 @@
     "db:studio": "bunx -b drizzle-kit studio",
     "format": "biome format --write",
     "check:code": "biome check --write",
-    "check:types": "tsc"
+    "check:types": "tsc --noEmit"
   },
   "exports": {
-    ".": {
-      "types": "./.types/database.d.ts",
-      "default": "./database.ts"
-    },
-    "./schema": {
-      "types": "./.types/schema/index.d.ts",
-      "default": "./schema/index.ts"
-    }
+    ".": "./database.ts",
+    "./schema": "./schema/index.ts"
   },
   "devDependencies": {
     "@libsql/client": "^0.17.4",

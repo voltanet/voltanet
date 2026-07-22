@@ -3,12 +3,8 @@
   "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "tsBuildInfoFile": "node_modules/database.tsbuildinfo",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": ".types",
     "types": ["bun"],
-    "composite": true,
-    "noEmit": false,
+    "noEmit": true,
     "paths": {
       "@/*": ["./*"]
     }

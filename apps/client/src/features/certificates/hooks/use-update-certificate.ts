@@ -22,7 +22,6 @@ export const useUpdateCertificate = (initialValues: $UpdateCertificateSchema) =>
       } else {
         client.invalidateQueries({ queryKey: ["certificates"] });
         notify.success(result);
-        form.reset();
       }
     },
   });

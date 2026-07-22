@@ -5,29 +5,14 @@
   "scripts": {
     "format": "biome format --write",
     "check:code": "biome check --write",
-    "check:types": "tsc"
+    "check:types": "tsc --noEmit"
   },
   "exports": {
-    ".": {
-      "types": "./.types/index.d.ts",
-      "default": "./index.ts"
-    },
-    "./constants": {
-      "types": "./.types/constants/index.d.ts",
-      "default": "./constants/index.ts"
-    },
-    "./types": {
-      "types": "./.types/types/index.d.ts",
-      "default": "./types/index.ts"
-    },
-    "./i18n": {
-      "types": "./.types/i18n/index.d.ts",
-      "default": "./i18n/index.ts"
-    },
-    "./validation": {
-      "types": "./.types/validation/index.d.ts",
-      "default": "./validation/index.ts"
-    }
+    ".": "./index.ts",
+    "./constants": "./constants/index.ts",
+    "./types": "./types/index.ts",
+    "./i18n": "./i18n/index.ts",
+    "./validation": "./validation/index.ts"
   },
   "dependencies": {
     "zod": "^4.4.3"

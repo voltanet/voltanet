@@ -5,16 +5,18 @@ export type $EmptyState = {
   title: string;
   description?: string;
   children?: React.ReactNode;
+  size?: number;
   icon?: string;
 };
 
 export const EmptyState = (props: $EmptyState) => {
+  const size = props.size || 100;
   return (
     <Stack justify="center" align="center" gap={10} flex={1}>
-      <ThemeIcon size={100} radius={50} variant="light">
-        <Iconify width={50} icon={props.icon || "@vite:iconamoon:box-light"} />
+      <ThemeIcon size={size} radius={50} variant="light">
+        <Iconify width={size / 2} icon={props.icon || "@vite:iconamoon:box-light"} />
       </ThemeIcon>
-      <Text ta="center" fz="lg" fw="bold">
+      <Text ta="center" fz={size >= 100 ? "xl" : "md"} fw="bold">
         {props.title}
       </Text>
       {props.description && (

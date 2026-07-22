@@ -9,17 +9,11 @@
     "compile": "bun -b ./scripts/compile.ts",
     "format": "biome format --write",
     "check:code": "biome check --write",
-    "check:types": "tsc"
+    "check:types": "tsc --noEmit"
   },
   "exports": {
-    "./api": {
-      "types": "./.types/router/client.d.ts",
-      "default": "./router/client.ts"
-    },
-    "./auth": {
-      "types": "./.types/utils/auth/client.d.ts",
-      "default": "./utils/auth/client.ts"
-    }
+    "./api": "./router/client.ts",
+    "./auth": "./utils/auth/client.ts"
   },
   "devDependencies": {
     "@orpc/client": "^1.14.0",
