@@ -10,7 +10,8 @@ export const createAccessControlRoute = safeRoute
     const { db, schema } = context;
 
     // Encrypt credentials passwords
-    const credentials = input.credentials.map(({ username, password }) => ({
+    const credentials = input.credentials.map(({ id, username, password }) => ({
+      id,
       username,
       password: Bun.password.hashSync(password, "bcrypt"),
     }));

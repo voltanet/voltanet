@@ -17,7 +17,7 @@ export const accessControl = dz.sqliteTable("access_control", {
     .notNull(),
   credentials: dz
     .text("credentials", { mode: "json" })
-    .$type<{ username: string; password: string }[]>()
+    .$type<{ id: string; username: string; password: string }[]>()
     .default([])
     .notNull(),
 });

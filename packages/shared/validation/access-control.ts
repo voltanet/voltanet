@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 const credentials = z.object({
+  id: z.string(),
   username: z
     .string()
     .trim()
@@ -23,7 +24,7 @@ export const createAccessControlSchema = z.object({
     .min(3, "Name is too short (min 3 characters)")
     .max(50, "Name is too long (max 50 characters)")
     .nonempty("Name is required"),
-  rule: z.enum(["allow", "deny"], "Invalid rule"),
+  rule: z.enum(["allow", "deny"], "Invalid rule").default("allow"),
   exceptions: z
     .array(z.string().trim())
     .transform((v) => v.map((t) => t.toLowerCase()))
@@ -45,6 +46,7 @@ export const createAccessControlSchema = z.object({
 });
 
 const credentialsUpdate = z.object({
+  id: z.string(),
   username: credentials.shape.username,
   password: credentials.shape.password.optional(),
 });

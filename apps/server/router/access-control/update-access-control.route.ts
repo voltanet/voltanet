@@ -17,17 +17,17 @@ export const updateAccessControlRoute = safeRoute
       if (!exists) throw errors.NOT_FOUND();
 
       // Encrypt credentials passwords
-      const credentials = input.credentials?.map(({ username, password }) => {
-        const current = exists.credentials.find((c) => c.username === username);
+      const credentials = input.credentials?.map(({ id, username, password }) => {
+        const current = exists.credentials.find((c) => c.id === id);
         if (current) {
           // Existing credential, hash the password if provided
           const nextPass = password ? Bun.password.hashSync(password, "bcrypt") : current.password;
-          return { username, password: nextPass };
+          return { id, username, password: nextPass };
         } else if (password) {
           // New credential, hash the password
-          return { username, password: Bun.password.hashSync(password, "bcrypt") };
+          return { id, username, password: Bun.password.hashSync(password, "bcrypt") };
         } else {
-          // New credential, no password, ignore
+          // Deleted credential, no password, ignore
           return undefined;
         }
       });

@@ -9,8 +9,16 @@ const accessControl = seeder(async (trx, dev) => {
       exceptions: ["192.168.1.0/24", "172.17.0.0/16"],
       satisfy: "all",
       credentials: [
-        { username: "admin", password: Bun.password.hashSync("changeme", "bcrypt") },
-        { username: "manager", password: Bun.password.hashSync("changeme", "bcrypt") },
+        {
+          id: "00000000-0000-0000-0000-000000000000",
+          username: "admin",
+          password: Bun.password.hashSync("changeme", "bcrypt"),
+        },
+        {
+          id: "10000000-0000-0000-0000-000000000000",
+          username: "manager",
+          password: Bun.password.hashSync("changeme", "bcrypt"),
+        },
       ],
     });
   }
