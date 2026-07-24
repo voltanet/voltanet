@@ -9,14 +9,14 @@
     "build": "turbo build",
     "start": "turbo start",
     "format": "biome format --write",
-    "check:code": "biome check --write",
+    "check:code": "turbo check:code",
     "check:types": "turbo check:types",
     "turbo": "turbo"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.3",
+    "@biomejs/biome": "2.5.5",
     "@types/bun": "^1.3.14",
-    "turbo": "^2.10.4",
+    "turbo": "^2.10.6",
     "typescript": "^7.0.2"
   },
   "workspaces": [
