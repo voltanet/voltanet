@@ -12,29 +12,29 @@
   },
   "dependencies": {
     "@iconify/react": "^6.0.2",
-    "@mantine/core": "^8.3.10",
-    "@mantine/dates": "^8.3.10",
-    "@mantine/form": "^8.3.10",
-    "@mantine/hooks": "^8.3.10",
-    "@mantine/notifications": "^8.3.10",
-    "@orpc/client": "^1.14.7",
+    "@mantine/core": "^9.4.2",
+    "@mantine/dates": "^9.4.2",
+    "@mantine/form": "^9.4.2",
+    "@mantine/hooks": "^9.4.2",
+    "@mantine/notifications": "^9.4.2",
+    "@orpc/client": "^1.14.8",
     "@repo/server": "workspace:*",
     "@repo/shared": "workspace:*",
-    "@tanstack/react-query": "^5.101.2",
-    "@tanstack/react-router": "^1.170.17",
+    "@tanstack/react-query": "^5.101.4",
+    "@tanstack/react-router": "^1.170.18",
     "dayjs": "^1.11.21",
-    "jotai": "^2.20.1",
+    "jotai": "^2.20.2",
     "mantine-form-zod-resolver": "^1.3.0",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@tanstack/router-plugin": "^1.168.19",
+    "@tanstack/router-plugin": "^1.168.23",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.3",
+    "@vitejs/plugin-react": "^6.0.4",
     "sass-embedded": "^1.100.0",
-    "vite": "^8.1.4"
+    "vite": "^8.1.5"
   }
 }

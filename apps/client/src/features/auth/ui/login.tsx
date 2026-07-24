@@ -33,7 +33,7 @@ export const LoginForm = () => {
           leftSection={<Iconify icon="@vite:solar:letter-bold" />}
           {...form.getInputProps("email")}
           key={form.key("email")}
-          size="lg"
+          size="md"
         />
         <PasswordInput
           label="Password"
@@ -41,7 +41,7 @@ export const LoginForm = () => {
           leftSection={<Iconify icon="@vite:solar:lock-password-bold" />}
           {...form.getInputProps("password")}
           key={form.key("password")}
-          size="lg"
+          size="md"
         />
         <Button type="submit" variant="filled" size="md" loading={isPending} fullWidth>
           Login

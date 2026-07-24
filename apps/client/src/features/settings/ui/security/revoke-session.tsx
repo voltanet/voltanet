@@ -28,7 +28,7 @@ export const RevokeSession = ({ token }: { token: string }) => {
           <Text>Are you sure you want to revoke this session?</Text>
           <Group justify="flex-end" gap={10}>
             <Button onClick={close}>Cancel</Button>
-            <Button loading={isPending} onClick={() => mutate()} color="red" variant="filled">
+            <Button variant="filled" color="red" onClick={() => mutate()} loading={isPending}>
               Yes
             </Button>
           </Group>

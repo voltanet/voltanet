@@ -7,8 +7,6 @@ export const DisplaySize = () => {
   return (
     <Select
       variant="filled"
-      allowDeselect={false}
-      checkIconPosition="right"
       onChange={(value) => setValue(Number(value))}
       value={String(value)}
       data={[

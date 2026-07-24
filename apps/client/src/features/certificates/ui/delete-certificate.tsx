@@ -21,7 +21,7 @@ export const DeleteCertificate = ({ children, id }: $DeleteCertificate) => {
           <Text>Are you sure you want to delete this certificate?</Text>
           <Group justify="flex-end" gap={15}>
             <Button onClick={close}>Cancel</Button>
-            <Button variant="filled" onClick={() => void mutate()} color="red" loading={isPending}>
+            <Button variant="filled" color="red" onClick={() => void mutate()} loading={isPending}>
               Delete
             </Button>
           </Group>

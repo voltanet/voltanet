@@ -8,11 +8,12 @@ export const useAppTheme = () => {
 
   return Core.createTheme({
     fontFamily: `${fontFamily}, sans-serif`,
-    primaryColor: "teal",
+    primaryColor: "green",
     defaultRadius: 10,
     autoContrast,
     scale,
     colors: { text: Core.colorsTuple("var(--mantine-color-text)") },
+    variantColorResolver: autoContrast ? Core.defaultVariantColorsResolver : variantColorResolver,
     components: {
       Avatar: Core.Avatar.extend({ defaultProps: { radius: 5 } }),
       Accordion: Core.Accordion.extend({ defaultProps: { radius: "lg" } }),
@@ -23,6 +24,9 @@ export const useAppTheme = () => {
       Badge: Core.Badge.extend({ defaultProps: { radius: 5, tt: "none" } }),
       Group: Core.Group.extend({ defaultProps: { gap: 20 } }),
       Stack: Core.Stack.extend({ defaultProps: { gap: 20 } }),
+      Select: Core.Select.extend({
+        defaultProps: { checkIconPosition: "right", allowDeselect: false },
+      }),
       Card: Core.Card.extend({
         styles: { root: { overflow: "visible" } },
         defaultProps: { withBorder: true },
@@ -30,6 +34,7 @@ export const useAppTheme = () => {
       Drawer: Core.Drawer.extend({
         defaultProps: {
           overlayProps: { blur: 5 },
+          lockScroll: false,
           position: "right",
           radius: "md",
           offset: 10,
@@ -39,6 +44,7 @@ export const useAppTheme = () => {
         defaultProps: {
           overlayProps: { blur: 5 },
           transitionProps: { transition: "fade-up" },
+          lockScroll: false,
           centered: true,
         },
       }),
@@ -54,4 +60,26 @@ export const useAppTheme = () => {
       }),
     },
   });
+};
+
+// Restore old light variant style
+const variantColorResolver = (input: Core.VariantColorsResolverInput) => {
+  const result = Core.defaultVariantColorsResolver(input);
+
+  if (input.variant === "light") {
+    const parsedColor = Core.parseThemeColor({
+      color: input.color || input.theme.primaryColor,
+      theme: input.theme,
+    });
+
+    return {
+      ...result,
+      background: Core.rgba(parsedColor.value, 0.1),
+      border: Core.rgba(parsedColor.value, 0.1),
+      hover: Core.rgba(parsedColor.value, 0.15),
+      color: parsedColor.value,
+    };
+  }
+
+  return result;
 };

@@ -46,10 +46,11 @@ export const AccountPassword = () => {
           label="Sign out from other devices"
           {...form.getInputProps("revokeOtherSessions")}
           key={form.key("revokeOtherSessions")}
+          variant="outline"
           radius="sm"
         />
         {form.isDirty() && (
-          <Button type="submit" variant="filled" loading={isPending}>
+          <Button variant="filled" type="submit" loading={isPending}>
             Update Password
           </Button>
         )}

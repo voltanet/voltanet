@@ -29,7 +29,6 @@ export const Controls = ({ refetch, loading }: $Controls) => {
             w={135}
             title="Sort by"
             defaultValue="updatedAt"
-            checkIconPosition="right"
             styles={{ input: { borderRadius: "10px 0 0 10px" } }}
             onChange={(value) => state.setSort(value as typeof state.sort)}
             value={state.sort}

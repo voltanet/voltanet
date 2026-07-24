@@ -11,3 +11,7 @@ export const useDisplaySize = () => {
 export const useFontFamily = () => {
   return useLocalStorage({ key: "font-family", defaultValue: "Roboto" });
 };
+
+export const useAmoledDark = () => {
+  return useLocalStorage({ key: "amoled-dark", defaultValue: false });
+};

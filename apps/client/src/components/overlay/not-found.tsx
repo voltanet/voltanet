@@ -9,7 +9,7 @@ export const NotFoundOverlay = () => {
     <Providers>
       <Center h="100%">
         <Stack align="center" ta="center" pb={60}>
-          <Badge variant="light" size="xl">
+          <Badge variant="light" color="red" size="xl">
             404
           </Badge>
           <Title order={2}>Page not found</Title>

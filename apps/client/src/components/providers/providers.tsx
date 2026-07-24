@@ -4,7 +4,7 @@ import { Notifications } from "@mantine/notifications";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { TextStyleLoader } from "@/features/settings";
+import { AmoledDarkLoader, TextStyleLoader } from "@/features/settings";
 import { useAppTheme } from "./theme";
 
 import "@mantine/core/styles.css";
@@ -29,6 +29,7 @@ export const Providers = ({ children }: { children?: React.ReactNode }) => {
         <meta name="theme-color" content="var(--mantine-color-body)" />
         <DatesProvider settings={{ consistentWeeks: true }}>
           <Notifications />
+          <AmoledDarkLoader />
           <TextStyleLoader />
           {children}
         </DatesProvider>

@@ -53,7 +53,7 @@ export const AccountDetails = () => {
           disabled
         />
         {form.isDirty() && (
-          <Button type="submit" loading={isPending} variant="filled">
+          <Button variant="filled" type="submit" loading={isPending}>
             Save Changes
           </Button>
         )}

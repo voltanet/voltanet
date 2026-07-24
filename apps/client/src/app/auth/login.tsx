@@ -7,8 +7,10 @@ export const Route = createFileRoute("/auth/login")({
     return (
       <Center h="100%">
         <Stack maw={450} w="100%" py={20}>
-          <Title order={2}>Welcome back</Title>
-          <Text c="dimmed">Login to access the dashboard.</Text>
+          <div>
+            <Title order={2}>Welcome back</Title>
+            <Text c="dimmed">Login to access the dashboard.</Text>
+          </div>
           <LoginForm />
         </Stack>
       </Center>

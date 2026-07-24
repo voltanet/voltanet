@@ -14,7 +14,6 @@ export const TextStyle = () => {
   return (
     <Select
       variant="filled"
-      allowDeselect={false}
       onChange={(value) => setValue(value || "Roboto")}
       value={value}
       data={[

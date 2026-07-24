@@ -13,8 +13,6 @@ export const ControlsPagination = (props: { total: number }) => {
       <Text>Limit:</Text>
       <Select
         title="Limit"
-        allowDeselect={false}
-        checkIconPosition="right"
         onChange={(limit) => state.setLimit(Number(limit ?? 20))}
         value={state.limit.toString()}
         data={["5", "10", "20", "50"]}
@@ -58,7 +56,7 @@ const PagePopover = ({ total, ...props }: UseUncontrolledOptions<number> & { tot
             flex={1}
             min={1}
           />
-          <Button onClick={handleNavigate} variant="filled">
+          <Button variant="filled" onClick={handleNavigate}>
             Go
           </Button>
         </Group>
