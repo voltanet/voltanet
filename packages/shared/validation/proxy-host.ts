@@ -6,7 +6,8 @@ const destinationSchema = z.object({
     .string()
     .trim()
     .min(1, "Hostname is too short (min 1 character)")
-    .max(255, "Hostname is too long (max 255 characters)"),
+    .max(255, "Hostname is too long (max 255 characters)")
+    .nonempty("Hostname is required"),
   port: z
     .int("Port number must be integer")
     .min(1, "Invalid port number (min 1)")
@@ -32,10 +33,9 @@ export const createProxyHostSchema = z.object({
       return new Set(keys).size === keys.length;
     }, "Duplicate domains found"),
   destination: destinationSchema,
+  websocket: z.boolean().default(true),
   forceHttps: z.boolean().default(false),
-  websocket: z.boolean().default(false),
-  isRedirect: z.boolean().default(false),
-  redirectCode: z.enum(["301", "302", "307", "308"], "Invalid redirect code").default("301"),
+  redirectCode: z.enum(["301", "302", "307", "308"], "Invalid redirect code").nullish(),
   config: z.string().trim().nullish(),
   accessControlId: z.string().nullish(),
   certificateId: z.string().nullish(),

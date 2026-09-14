@@ -10,8 +10,8 @@
   "exports": {
     ".": "./index.ts",
     "./constants": "./constants/index.ts",
-    "./types": "./types/index.ts",
     "./i18n": "./i18n/index.ts",
+    "./types": "./types/index.ts",
     "./validation": "./validation/index.ts"
   },
   "dependencies": {

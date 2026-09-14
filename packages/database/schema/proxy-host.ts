@@ -16,13 +16,9 @@ export const proxyHost = dz.sqliteTable("proxy_host", {
     .text("destination", { mode: "json" })
     .$type<{ protocol: "http" | "https"; hostname: string; port: number }>()
     .notNull(),
+  websocket: dz.integer("websocket", { mode: "boolean" }).default(true).notNull(),
   forceHttps: dz.integer("force_https", { mode: "boolean" }).default(false).notNull(),
-  websocket: dz.integer("websocket", { mode: "boolean" }).default(false).notNull(),
-  isRedirect: dz.integer("is_redirect", { mode: "boolean" }).default(false).notNull(),
-  redirectCode: dz
-    .text("redirect_code", { enum: ["301", "302", "307", "308"] })
-    .default("301")
-    .notNull(),
+  redirectCode: dz.text("redirect_code", { enum: ["301", "302", "307", "308"] }),
   config: dz.text("config"),
   accessControlId: dz
     .text("access_control_id")

@@ -28,7 +28,7 @@ const proxyHost = seeder(async (trx, dev) => {
       enabled: false,
       domains: ["https://wifi.home.local"],
       destination: { protocol: "https", hostname: "192.168.1.1", port: 443 },
-      forceHttps: true,
+      redirectCode: "302",
     });
   }
 });
