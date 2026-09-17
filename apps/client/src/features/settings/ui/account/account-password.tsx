@@ -12,9 +12,9 @@ export const AccountPassword = () => {
   const { form, isPending, error } = useFormMutation({
     initialValues: { currentPassword: "", newPassword: "", revokeOtherSessions: false },
     schema: updatePasswordSchema,
-    onError: (error) => notify.error(error.message),
     mutationFn: async (values) => auth.changePassword(values),
-    onSuccess: () => {
+    onSuccess: ({ error }) => {
+      if (error) throw error;
       queryClient.invalidateQueries({ queryKey: ["session"] });
       notify.success("Password updated successfully");
     },

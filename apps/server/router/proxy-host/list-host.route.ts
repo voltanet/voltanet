@@ -8,12 +8,10 @@ import { like } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";
 
-const outputSchema = createProxyHostSchema
-  .omit({ accessControlId: true, certificateId: true })
-  .extend({
-    accessControl: z.object({ id: z.string(), name: z.string() }).nullable(),
-    certificate: z.object({ id: z.string(), name: z.string() }).nullable(),
-  });
+const outputSchema = createProxyHostSchema.extend({
+  accessControl: z.object({ id: z.string(), name: z.string() }).nullable(),
+  certificate: z.object({ id: z.string(), name: z.string() }).nullable(),
+});
 
 export const listHostRoute = safeRoute
   .route({ method: "GET", tags: ["Proxy Hosts"], path: "/proxy-host/list" })
@@ -28,7 +26,6 @@ export const listHostRoute = safeRoute
       const found = await trx.$count(schema.proxyHost, where);
 
       const items = await trx.query.proxyHost.findMany({
-        columns: { accessControlId: false, certificateId: false },
         with: {
           accessControl: { columns: { id: true, name: true } },
           certificate: { columns: { id: true, name: true } },

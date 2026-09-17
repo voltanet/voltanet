@@ -19,7 +19,12 @@ import { EmptyState } from "@/components/empty-state";
 import { Iconify } from "@/components/iconify";
 import { useCreateAccessControl } from "../hooks";
 
-export const CreateAccessControl = ({ children }: React.PropsWithChildren) => {
+export type $CreateAccessControl = {
+  children?: React.ReactNode;
+  ref?: React.Ref<HTMLDivElement>;
+};
+
+export const CreateAccessControl = ({ children, ref }: $CreateAccessControl) => {
   const [opened, { open, close }] = useDisclosure(false);
   const { form, error, isPending } = useCreateAccessControl();
 
@@ -28,7 +33,9 @@ export const CreateAccessControl = ({ children }: React.PropsWithChildren) => {
 
   return (
     <>
-      <Box onClick={open}>{children}</Box>
+      <Box onClick={open} ref={ref}>
+        {children}
+      </Box>
       <Drawer opened={opened} onClose={close} title="Create Access Control">
         <form onSubmit={form.onSubmit}>
           <Stack>

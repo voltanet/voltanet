@@ -29,7 +29,7 @@ export const HeaderMenu = () => {
         <Anchor component={Link} to="/settings/account" underline="never">
           <Menu.Item leftSection={<Iconify icon="@vite:solar:user-bold" />}>Account</Menu.Item>
         </Anchor>
-        <Anchor component={Link} to="/logs" underline="never">
+        <Anchor component={Link} to="/activity" underline="never">
           <Menu.Item leftSection={<Iconify icon="@vite:solar:history-bold" />}>
             Activity Logs
           </Menu.Item>

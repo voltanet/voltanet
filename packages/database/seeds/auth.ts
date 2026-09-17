@@ -6,7 +6,7 @@ const user = seeder(async (trx) => {
   await trx.insert(schema.user).values({
     id,
     name: "System Admin",
-    email: "admin@example.com",
+    email: "admin@localhost",
     emailVerified: true,
   });
 });

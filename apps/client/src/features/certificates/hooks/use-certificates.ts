@@ -3,11 +3,11 @@ import { paginationSchema } from "@repo/shared/validation";
 import { useQuery } from "@tanstack/react-query";
 import { useControls } from "@/components/controls";
 
-export const useCertificates = () => {
+export const useCertificates = (run = true) => {
   const { enabled, values, page } = useControls();
 
   return useQuery({
-    enabled,
+    enabled: enabled && run,
     queryKey: ["certificates", values, page],
     queryFn: async () => {
       const { success, data } = paginationSchema.safeParse({ ...values, page });

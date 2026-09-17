@@ -14,6 +14,8 @@ import {
   TextInput,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { AccessControlPicker } from "@/features/access-controls";
+import { CertificatePicker } from "@/features/certificates";
 import { useCreateProxyHost } from "../hooks";
 
 export const CreateProxyHost = ({ children }: React.PropsWithChildren) => {
@@ -76,9 +78,17 @@ export const CreateProxyHost = ({ children }: React.PropsWithChildren) => {
                 min={1}
               />
             </Group>
-            {/* <Divider /> */}
-            {/* CertificatePicker */}
-            {/* AccessControlPicker */}
+            <Divider />
+            <CertificatePicker
+              {...form.getInputProps("certificateId")}
+              key={form.key("certificateId")}
+              enabled={opened}
+            />
+            <AccessControlPicker
+              {...form.getInputProps("accessControlId")}
+              key={form.key("accessControlId")}
+              enabled={opened}
+            />
             <Divider />
             <Select
               label="Redirect Mode"

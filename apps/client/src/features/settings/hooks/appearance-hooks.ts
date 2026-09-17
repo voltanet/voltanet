@@ -13,5 +13,5 @@ export const useFontFamily = () => {
 };
 
 export const useAmoledDark = () => {
-  return useLocalStorage({ key: "amoled-dark", defaultValue: false });
+  return useLocalStorage({ key: "amoled-dark", defaultValue: true });
 };

@@ -14,6 +14,7 @@ export const auth = betterAuth({
   user: {
     changeEmail: { enabled: true, updateEmailWithoutVerification: true },
   },
+  session: { freshAge: 0 },
   emailAndPassword: {
     enabled: true,
     disableSignUp: true,

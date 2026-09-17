@@ -4,13 +4,20 @@ import { useDisclosure } from "@mantine/hooks";
 import { TextareaReader } from "@/components/textarea-reader";
 import { useCreateCertificate } from "../hooks";
 
-export const CreateCertificate = ({ children }: React.PropsWithChildren) => {
+export type $CreateCertificate = {
+  children?: React.ReactNode;
+  ref?: React.Ref<HTMLDivElement>;
+};
+
+export const CreateCertificate = ({ children, ref }: $CreateCertificate) => {
   const [opened, { open, close }] = useDisclosure(false);
   const { form, error, isPending } = useCreateCertificate();
 
   return (
     <>
-      <Box onClick={open}>{children}</Box>
+      <Box onClick={open} ref={ref}>
+        {children}
+      </Box>
       <Drawer opened={opened} onClose={close} title="Create Certificate">
         <form onSubmit={form.onSubmit}>
           <Stack>

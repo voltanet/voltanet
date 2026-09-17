@@ -9,13 +9,8 @@ import { z } from "zod";
 import { safeRoute } from "@/router/base";
 
 const outputSchema = createAccessControlSchema.extend({
-  credentials: z.array(
-    z.object({
-      id: z.string(),
-      username: z.string(),
-      password: z.undefined(), // Hide password in the output
-    }),
-  ),
+  // Hide password in the output
+  credentials: z.array(z.object({ id: z.string(), username: z.string(), password: z.undefined() })),
 });
 
 export const listAccessControlRoute = safeRoute
@@ -39,8 +34,8 @@ export const listAccessControlRoute = safeRoute
 
       // Hide credentials passwords
       const items = results.map(({ credentials, ...rest }) => ({
-        ...rest,
         credentials: credentials.map(({ id, username }) => ({ id, username, password: undefined })),
+        ...rest,
       }));
 
       return { total, found, items };
