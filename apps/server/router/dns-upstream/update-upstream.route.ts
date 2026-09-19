@@ -1,11 +1,11 @@
-import { updateUpstreamSchema } from "@repo/shared/validation";
+import { updateDNSUpstreamSchema } from "@repo/shared/validation";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";
 
 export const updateUpstreamRoute = safeRoute
   .route({ method: "PUT", tags: ["DNS Upstreams"], path: "/dns-upstream/update" })
-  .input(updateUpstreamSchema)
+  .input(updateDNSUpstreamSchema)
   .output(z.string())
   .errors({ NOT_FOUND: { message: "DNS upstream not found" } })
   .handler(async ({ context, input, errors }) => {

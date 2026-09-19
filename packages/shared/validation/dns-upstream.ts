@@ -14,8 +14,8 @@ const servers = z.object({
     .default(53),
 });
 
-export type $CreateUpstreamSchema = z.infer<typeof createUpstreamSchema>;
-export const createUpstreamSchema = z.object({
+export type $CreateDNSUpstreamSchema = z.infer<typeof createDNSUpstreamSchema>;
+export const createDNSUpstreamSchema = z.object({
   name: z
     .string()
     .trim()
@@ -26,11 +26,11 @@ export const createUpstreamSchema = z.object({
   servers: z.array(servers).min(1, "At least one server is required"),
 });
 
-export type $UpdateUpstreamSchema = z.infer<typeof updateUpstreamSchema>;
-export const updateUpstreamSchema = z.object({
+export type $UpdateDNSUpstreamSchema = z.infer<typeof updateDNSUpstreamSchema>;
+export const updateDNSUpstreamSchema = z.object({
   id: z.string(),
-  ...createUpstreamSchema.partial().shape,
+  ...createDNSUpstreamSchema.partial().shape,
 });
 
-export type $UpstreamIdSchema = z.infer<typeof upstreamIdSchema>;
-export const upstreamIdSchema = z.object({ id: z.string() });
+export type $DNSUpstreamIdSchema = z.infer<typeof dnsUpstreamIdSchema>;
+export const dnsUpstreamIdSchema = z.object({ id: z.string() });

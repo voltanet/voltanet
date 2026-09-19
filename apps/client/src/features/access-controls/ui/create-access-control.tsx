@@ -91,7 +91,7 @@ export const CreateAccessControl = ({ children, ref }: $CreateAccessControl) => 
                     A set of credentials for basic-auth.
                   </Text>
                   {form.errors.credentials && (
-                    <Text size="xs" c="red">
+                    <Text size="xs" c="var(--mantine-color-error)">
                       {form.errors.credentials}
                     </Text>
                   )}

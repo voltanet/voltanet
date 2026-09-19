@@ -87,7 +87,7 @@ export const UpdateAccessControl = ({ children, item }: $UpdateAccessControl) =>
                     A set of credentials for basic-auth.
                   </Text>
                   {form.errors.credentials && (
-                    <Text size="xs" c="red">
+                    <Text size="xs" c="var(--mantine-color-error)">
                       {form.errors.credentials}
                     </Text>
                   )}

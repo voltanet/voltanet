@@ -1,11 +1,11 @@
-import { upstreamIdSchema } from "@repo/shared/validation";
+import { dnsUpstreamIdSchema } from "@repo/shared/validation";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import { safeRoute } from "@/router/base";
 
 export const deleteUpstreamRoute = safeRoute
   .route({ method: "DELETE", tags: ["DNS Upstreams"], path: "/dns-upstream/delete" })
-  .input(upstreamIdSchema)
+  .input(dnsUpstreamIdSchema)
   .output(z.string())
   .errors({ NOT_FOUND: { message: "DNS upstream not found" } })
   .handler(async ({ context, input, errors }) => {

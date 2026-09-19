@@ -1,5 +1,5 @@
 import {
-  createUpstreamSchema,
+  createDNSUpstreamSchema,
   listOutputSchema,
   metaSchema,
   paginationSchema,
@@ -10,7 +10,7 @@ import { safeRoute } from "@/router/base";
 export const listUpstreamRoute = safeRoute
   .route({ method: "GET", tags: ["DNS Upstreams"], path: "/dns-upstream/list" })
   .input(paginationSchema)
-  .output(listOutputSchema(metaSchema.extend(createUpstreamSchema.shape)))
+  .output(listOutputSchema(metaSchema.extend(createDNSUpstreamSchema.shape)))
   .handler(async ({ context, input }) => {
     const { db, schema } = context;
     const where = input.search ? like(schema.dnsUpstream.name, `%${input.search}%`) : undefined;
