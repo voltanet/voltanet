@@ -3,7 +3,9 @@ import { type ErrorComponentProps, useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Providers } from "../providers";
 
-export const ErrorOverlay = ({ error, reset }: ErrorComponentProps) => {
+export type $ErrorOverlay = ErrorComponentProps;
+
+export const ErrorOverlay = ({ error, reset }: $ErrorOverlay) => {
   const navigate = useNavigate();
 
   useEffect(() => console.error(error), [error]);

@@ -8,15 +8,16 @@ export type $Notify = {
   color?: DefaultMantineColor;
 };
 
-export const useNotify = () => useCallback(Notify, []);
-const Notify = ({ message, title, color }: $Notify) => {
+export const notify = ({ message, title, color }: $Notify) => {
   notifications.show({ withBorder: true, autoClose: true, message, title, color });
 };
 
-Notify.success = (message: string) => {
-  Notify({ title: "Success", message, color: "var(--mantine-primary-color-filled)" });
+notify.success = (message: string) => {
+  notify({ title: "Success", message, color: "var(--mantine-primary-color-filled)" });
 };
 
-Notify.error = (message: string) => {
-  Notify({ title: "Error", message, color: "red" });
+notify.error = (message: string) => {
+  notify({ title: "Error", message, color: "red" });
 };
+
+export const useNotify = () => useCallback(notify, []);

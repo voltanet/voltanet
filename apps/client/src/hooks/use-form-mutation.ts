@@ -4,7 +4,7 @@ import { zod4Resolver } from "mantine-form-zod-resolver";
 import type { ZodType, z } from "zod";
 import { useNotify } from "./use-notify";
 
-type $UseFormMutation<Z, I, R, F = MutateFunction<R, Error, I>> = {
+export type $UseFormMutation<Z, I, R, F = MutateFunction<R, Error, I>> = {
   mutationFn: F;
   schema: Z;
   initialValues?: I;

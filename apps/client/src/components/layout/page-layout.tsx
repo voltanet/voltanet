@@ -1,7 +1,7 @@
 import { ActionIcon, Group, Stack, Text, ThemeIcon, Title } from "@mantine/core";
 import { Iconify } from "@/components/iconify";
 
-type $PageLayout = {
+export type $PageLayout = {
   label: string;
   description?: string;
   children?: React.ReactNode;

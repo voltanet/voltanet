@@ -3,7 +3,9 @@ import { type UseUncontrolledOptions, useUncontrolled } from "@mantine/hooks";
 import { Activity, useState } from "react";
 import { useControls } from "./use-controls";
 
-export const ControlsPagination = (props: { total: number }) => {
+export type $ControlsPagination = { total: number };
+
+export const ControlsPagination = (props: $ControlsPagination) => {
   const state = useControls();
 
   const total = Math.ceil(props.total / state.limit);
@@ -31,7 +33,9 @@ export const ControlsPagination = (props: { total: number }) => {
   );
 };
 
-const PagePopover = ({ total, ...props }: UseUncontrolledOptions<number> & { total: number }) => {
+export type $PagePopover = UseUncontrolledOptions<number> & $ControlsPagination;
+
+export const PagePopover = ({ total, ...props }: $PagePopover) => {
   const [page, setPage] = useUncontrolled(props);
   const [cache, setCache] = useState(page);
 

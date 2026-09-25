@@ -6,7 +6,9 @@ import { NavBar, useNavBar } from "../navbar";
 import { ScrollTop } from "../scroll-top";
 import { ShortcutsView } from "../shortcuts";
 
-export const Layout = ({ children }: { children?: React.ReactNode }) => {
+export type $Layout = { children?: React.ReactNode };
+
+export const Layout = ({ children }: $Layout) => {
   const [opened] = useNavBar();
   const { pathname } = useLocation();
   const isMobile = useMediaQuery("(max-width: 768px)");

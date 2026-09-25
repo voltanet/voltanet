@@ -2,7 +2,7 @@ import { ActionIcon, Box, FileButton, Textarea, type TextareaProps } from "@mant
 import { type UseUncontrolledOptions, useUncontrolled } from "@mantine/hooks";
 import { Iconify } from "./iconify";
 
-type $TextareaReader = TextareaProps & UseUncontrolledOptions<string>;
+export type $TextareaReader = TextareaProps & UseUncontrolledOptions<string>;
 
 export const TextareaReader = (props: $TextareaReader) => {
   const [value, setValue] = useUncontrolled(props);

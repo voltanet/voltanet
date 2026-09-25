@@ -20,7 +20,9 @@ const queryClient = new QueryClient({
 
 dayjs.extend(relativeTime);
 
-export const Providers = ({ children }: { children?: React.ReactNode }) => {
+export type $Providers = { children?: React.ReactNode };
+
+export const Providers = ({ children }: $Providers) => {
   const theme = useAppTheme();
 
   return (

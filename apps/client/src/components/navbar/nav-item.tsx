@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import type { Page } from "@/features/const";
 import { Iconify } from "../iconify";
 
-export const NavItem = ({ to, icon, label, list }: Page) => {
+export type $NavItem = Page;
+
+export const NavItem = ({ to, icon, label, list }: $NavItem) => {
   const { pathname } = useLocation();
   const [opened, setOpened] = useState(false);
   const children = list?.map((link) => <NavItem key={link.label} {...link} />);
