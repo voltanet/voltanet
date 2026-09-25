@@ -1,7 +1,7 @@
-import { Box, Button, Select } from "@mantine/core";
+import { Box, Button, EmptyState, Select } from "@mantine/core";
 import { type UseUncontrolledOptions, useUncontrolled } from "@mantine/hooks";
 import { useRef } from "react";
-import { EmptyState } from "@/components/empty-state";
+import { Iconify } from "@/components/iconify";
 import { useCertificates } from "../hooks";
 import { CreateCertificate } from "./create-certificate";
 
@@ -16,7 +16,11 @@ export const CertificatePicker = ({ enabled, ...options }: $CertificatePicker) =
 
   const emptyState = (
     <Box py={30}>
-      <EmptyState title="No certificates found" size={50}>
+      <EmptyState
+        title="No certificates found"
+        icon={<Iconify icon="@vite:iconamoon:box-light" />}
+        variant="light"
+      >
         <Button variant="filled" onClick={() => ref.current?.click()}>
           Create New
         </Button>

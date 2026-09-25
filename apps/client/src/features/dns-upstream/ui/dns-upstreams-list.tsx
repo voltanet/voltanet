@@ -1,6 +1,6 @@
-import { Button, Card, Group, Paper, SimpleGrid, Stack, Text } from "@mantine/core";
+import { Button, Card, EmptyState, Group, Paper, SimpleGrid, Stack, Text } from "@mantine/core";
 import { Controls } from "@/components/controls";
-import { EmptyState } from "@/components/empty-state";
+import { Iconify } from "@/components/iconify";
 import { useDNSUpstreams } from "../hooks";
 import { CreateDNSUpstream } from "./create-dns-upstream";
 import { DNSUpstreamCard } from "./dns-upstream-card";
@@ -20,6 +20,8 @@ export const DNSUpstreamList = () => {
             <EmptyState
               title="No DNS upsteams found"
               description="Try adjusting your search or filter criteria or create a new DNS upstream to get started."
+              icon={<Iconify icon="@vite:iconamoon:box-light" />}
+              variant="light"
             >
               <CreateDNSUpstream>
                 <Button variant="filled">Create New</Button>

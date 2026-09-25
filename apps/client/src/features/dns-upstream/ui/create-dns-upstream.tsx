@@ -6,6 +6,7 @@ import {
   Card,
   Divider,
   Drawer,
+  EmptyState,
   Group,
   NumberInput,
   Stack,
@@ -14,7 +15,6 @@ import {
   TextInput,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { EmptyState } from "@/components/empty-state";
 import { Iconify } from "@/components/iconify";
 import { useCreateDNSUpstream } from "../hooks";
 
@@ -77,7 +77,8 @@ export const CreateDNSUpstream = ({ children, ref }: $CreateDNSUpstream) => {
                   <EmptyState
                     title="No Servers Added"
                     description="Add a server to resolve your custom domains."
-                    size={70}
+                    icon={<Iconify icon="@vite:iconamoon:box-light" />}
+                    variant="light"
                   />
                 </Card>
               )}

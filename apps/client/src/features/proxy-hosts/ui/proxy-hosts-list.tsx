@@ -1,6 +1,6 @@
-import { Button, Card, Group, Paper, Stack, Text } from "@mantine/core";
+import { Button, Card, EmptyState, Group, Paper, Stack, Text } from "@mantine/core";
 import { Controls } from "@/components/controls";
-import { EmptyState } from "@/components/empty-state";
+import { Iconify } from "@/components/iconify";
 import { useProxyHosts } from "../hooks";
 import { CreateProxyHost } from "./create-proxy-host";
 import { ProxyHostCard } from "./proxy-host-card";
@@ -20,6 +20,8 @@ export const ProxyHostsList = () => {
             <EmptyState
               title="No proxy hosts found"
               description="Try adjusting your search or filter criteria or create a new proxy host to get started."
+              icon={<Iconify icon="@vite:iconamoon:box-light" />}
+              variant="light"
             >
               <CreateProxyHost>
                 <Button variant="filled">Create New</Button>

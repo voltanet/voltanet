@@ -1,7 +1,7 @@
-import { Box, Button, Select } from "@mantine/core";
+import { Box, Button, EmptyState, Select } from "@mantine/core";
 import { type UseUncontrolledOptions, useUncontrolled } from "@mantine/hooks";
 import { useRef } from "react";
-import { EmptyState } from "@/components/empty-state";
+import { Iconify } from "@/components/iconify";
 import { useAccessControls } from "../hooks";
 import { CreateAccessControl } from "./create-access-control";
 
@@ -16,7 +16,11 @@ export const AccessControlPicker = ({ enabled, ...options }: $AccessControlPicke
 
   const emptyState = (
     <Box py={30}>
-      <EmptyState title="No access controls found" size={50}>
+      <EmptyState
+        title="No access controls found"
+        icon={<Iconify icon="@vite:iconamoon:box-light" />}
+        variant="light"
+      >
         <Button variant="filled" onClick={() => ref.current?.click()}>
           Create New
         </Button>

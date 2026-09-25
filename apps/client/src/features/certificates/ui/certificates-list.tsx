@@ -1,6 +1,6 @@
-import { Button, Card, Group, Paper, SimpleGrid, Stack, Text } from "@mantine/core";
+import { Button, Card, EmptyState, Group, Paper, SimpleGrid, Stack, Text } from "@mantine/core";
 import { Controls } from "@/components/controls";
-import { EmptyState } from "@/components/empty-state";
+import { Iconify } from "@/components/iconify";
 import { useCertificates } from "../hooks";
 import { CertificateCard } from "./certificate-card";
 import { CertificateSkeleton } from "./certificate-skeleton";
@@ -20,6 +20,8 @@ export const CertificateList = () => {
             <EmptyState
               title="No certificates found"
               description="Try adjusting your search or filter criteria or create a new certificate to get started."
+              icon={<Iconify icon="@vite:iconamoon:box-light" />}
+              variant="light"
             >
               <CreateCertificate>
                 <Button variant="filled">Create New</Button>

@@ -1,6 +1,6 @@
-import { Button, Card, Group, Paper, SimpleGrid, Stack, Text } from "@mantine/core";
+import { Button, Card, EmptyState, Group, Paper, SimpleGrid, Stack, Text } from "@mantine/core";
 import { Controls } from "@/components/controls";
-import { EmptyState } from "@/components/empty-state";
+import { Iconify } from "@/components/iconify";
 import { useAccessControls } from "../hooks";
 import { AccessControlCard } from "./access-control-card";
 import { AccessControlSkeleton } from "./access-control-skeleton";
@@ -20,6 +20,8 @@ export const AccessControlList = () => {
             <EmptyState
               title="No access controls found"
               description="Try adjusting your search or filter criteria or create a new access control to get started."
+              icon={<Iconify icon="@vite:iconamoon:box-light" />}
+              variant="light"
             >
               <CreateAccessControl>
                 <Button variant="filled">Create New</Button>

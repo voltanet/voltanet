@@ -6,6 +6,7 @@ import {
   Card,
   Divider,
   Drawer,
+  EmptyState,
   Group,
   PasswordInput,
   SegmentedControl,
@@ -15,7 +16,6 @@ import {
   TextInput,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { EmptyState } from "@/components/empty-state";
 import { Iconify } from "@/components/iconify";
 import { useUpdateAccessControl } from "../hooks";
 import type { $AccessControl } from "../types";
@@ -101,7 +101,8 @@ export const UpdateAccessControl = ({ children, item }: $UpdateAccessControl) =>
                   <EmptyState
                     title="No Credentials Added"
                     description="Add a credentials to allow users to authenticate with basic-auth."
-                    size={70}
+                    icon={<Iconify icon="@vite:iconamoon:box-light" />}
+                    variant="light"
                   />
                 </Card>
               )}
