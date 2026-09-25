@@ -9,7 +9,9 @@ const status = [
   ["@vite:solar:clock-circle-bold", "yellow"],
 ] as const;
 
-export const SessionCard = ({ session, isCurrent }: { session: Session; isCurrent?: boolean }) => {
+export type $SessionCard = { session: Session; isCurrent?: boolean };
+
+export const SessionCard = ({ session, isCurrent }: $SessionCard) => {
   const [icon, color] = status[isCurrent ? 0 : 1];
 
   const content = [

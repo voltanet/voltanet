@@ -4,7 +4,9 @@ import { useMutation } from "@tanstack/react-query";
 import { auth } from "@/features/auth";
 import { useNotify } from "@/hooks/use-notify";
 
-export const RevokeSession = ({ token }: { token: string }) => {
+export type $RevokeSession = { token: string };
+
+export const RevokeSession = ({ token }: $RevokeSession) => {
   const notify = useNotify();
   const [opened, { open, close }] = useDisclosure(false);
 

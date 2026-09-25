@@ -5,7 +5,9 @@ import { useMutation } from "@tanstack/react-query";
 import { zod4Resolver } from "mantine-form-zod-resolver";
 import { useNotify } from "@/hooks/use-notify";
 
-export const useUpdateDNSUpstream = (initialValues: $UpdateDNSUpstreamSchema) => {
+export type $UseUpdateDNSUpstream = $UpdateDNSUpstreamSchema;
+
+export const useUpdateDNSUpstream = (initialValues: $UseUpdateDNSUpstream) => {
   const notify = useNotify();
 
   const form = useForm<$UpdateDNSUpstreamSchema>({

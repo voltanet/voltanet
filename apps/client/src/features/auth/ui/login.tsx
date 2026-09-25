@@ -1,22 +1,9 @@
 import { Alert, Button, PasswordInput, Stack, TextInput } from "@mantine/core";
-import { signInSchema } from "@repo/shared/validation";
 import { Iconify } from "@/components/iconify";
-import { useFormMutation } from "@/hooks/use-form-mutation";
-import { useNotify } from "@/hooks/use-notify";
-import { auth } from "../index";
+import { useLogin } from "../hooks";
 
 export const LoginForm = () => {
-  const notify = useNotify();
-
-  const { form, isPending, error } = useFormMutation({
-    initialValues: { email: "", password: "" },
-    schema: signInSchema,
-    mutationFn: async (values) => {
-      const { error } = await auth.signIn.email(values);
-      if (error) throw error;
-      notify.success("Signed in successfully");
-    },
-  });
+  const { form, isPending, error } = useLogin();
 
   return (
     <form onSubmit={form.onSubmit}>

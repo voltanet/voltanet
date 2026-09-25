@@ -20,7 +20,9 @@ const status = [
   ["Disabled", "@vite:solar:forbidden-circle-outline", "yellow"],
 ] as const;
 
-export const ProxyHostCard = ({ item }: { item: $ProxyHost }) => {
+export type $ProxyHostCard = { item: $ProxyHost };
+
+export const ProxyHostCard = ({ item }: $ProxyHostCard) => {
   const [label, icon, color] = status[item.enabled ? 0 : 1];
 
   const main = [

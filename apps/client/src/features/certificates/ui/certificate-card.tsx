@@ -11,7 +11,9 @@ const status = [
   ["Expired", "@vite:solar:danger-triangle-bold", "red"],
 ] as const;
 
-export const CertificateCard = ({ item }: { item: $Certificate }) => {
+export type $CertificateCard = { item: $Certificate };
+
+export const CertificateCard = ({ item }: $CertificateCard) => {
   const expired = dayjs(item.expiresAt).isBefore(dayjs());
   const expiringSoon = dayjs(item.expiresAt).isBefore(dayjs().add(30, "day"));
   const [label, icon, color] = status[expired ? 2 : expiringSoon ? 1 : 0];

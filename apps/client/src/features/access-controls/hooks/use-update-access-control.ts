@@ -8,7 +8,9 @@ import { useMutation } from "@tanstack/react-query";
 import { zod4Resolver } from "mantine-form-zod-resolver";
 import { useNotify } from "@/hooks/use-notify";
 
-export const useUpdateAccessControl = (initialValues: $UpdateAccessControlSchema) => {
+export type $UseUpdateAccessControl = $UpdateAccessControlSchema;
+
+export const useUpdateAccessControl = (initialValues: $UseUpdateAccessControl) => {
   const notify = useNotify();
 
   const form = useForm<$UpdateAccessControlSchema>({

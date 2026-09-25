@@ -5,7 +5,9 @@ import { useMutation } from "@tanstack/react-query";
 import { zod4Resolver } from "mantine-form-zod-resolver";
 import { useNotify } from "@/hooks/use-notify";
 
-export const useUpdateProxyHost = (initialValues: $UpdateProxyHostSchema) => {
+export type $UseUpdateProxyHost = $UpdateProxyHostSchema;
+
+export const useUpdateProxyHost = (initialValues: $UseUpdateProxyHost) => {
   const notify = useNotify();
 
   const form = useForm<$UpdateProxyHostSchema>({

@@ -5,7 +5,9 @@ import { useMutation } from "@tanstack/react-query";
 import { zod4Resolver } from "mantine-form-zod-resolver";
 import { useNotify } from "@/hooks/use-notify";
 
-export const useUpdateCertificate = (initialValues: $UpdateCertificateSchema) => {
+export type $UseUpdateCertificate = $UpdateCertificateSchema;
+
+export const useUpdateCertificate = (initialValues: $UseUpdateCertificate) => {
   const notify = useNotify();
 
   const form = useForm<$UpdateCertificateSchema>({

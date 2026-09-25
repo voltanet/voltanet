@@ -20,7 +20,9 @@ const status = [
   ["Deny", "@vite:solar:forbidden-circle-outline", "yellow"],
 ] as const;
 
-export const AccessControlCard = ({ item }: { item: $AccessControl }) => {
+export type $AccessControlCard = { item: $AccessControl };
+
+export const AccessControlCard = ({ item }: $AccessControlCard) => {
   const [label, icon, color] = status[item.rule === "allow" ? 0 : 1];
 
   const content = [

@@ -18,7 +18,9 @@ import { AccessControlPicker } from "@/features/access-controls";
 import { CertificatePicker } from "@/features/certificates";
 import { useCreateProxyHost } from "../hooks";
 
-export const CreateProxyHost = ({ children }: React.PropsWithChildren) => {
+export type $CreateProxyHost = { children?: React.ReactNode };
+
+export const CreateProxyHost = ({ children }: $CreateProxyHost) => {
   const [opened, { open, close }] = useDisclosure(false);
   const { form, error, isPending } = useCreateProxyHost();
 

@@ -20,7 +20,9 @@ const status = [
   ["Disabled", "@vite:solar:forbidden-circle-outline", "yellow"],
 ] as const;
 
-export const DNSUpstreamCard = ({ item }: { item: $DNSUpstream }) => {
+export type $DNSUpstreamCard = { item: $DNSUpstream };
+
+export const DNSUpstreamCard = ({ item }: $DNSUpstreamCard) => {
   const [label, icon, color] = status[item.enabled ? 0 : 1];
 
   return (

@@ -1,26 +1,15 @@
 import { Alert, Button, Card, Stack, TextInput } from "@mantine/core";
-import { updateDetailsSchema } from "@repo/shared/validation";
 import { Iconify } from "@/components/iconify";
 import { auth } from "@/features/auth";
-import { useFormMutation } from "@/hooks/use-form-mutation";
-import { useNotify } from "@/hooks/use-notify";
+import { useUpdateAccountDetails } from "../../hooks";
 import { AvatarPicker } from "./avatar-picker";
 
 export const AccountDetails = () => {
-  const notify = useNotify();
   const { data: session } = auth.useSession();
 
-  const { form, isPending, error } = useFormMutation({
-    initialValues: {
-      image: session?.user.image,
-      name: session?.user.name,
-    },
-    schema: updateDetailsSchema,
-    mutationFn: async (values) => {
-      const { error } = await auth.updateUser(values);
-      if (error) throw new Error(error.message);
-      notify.success("Account updated successfully");
-    },
+  const { form, isPending, error } = useUpdateAccountDetails({
+    image: session?.user.image,
+    name: session?.user.name,
   });
 
   if (!session) return null;
