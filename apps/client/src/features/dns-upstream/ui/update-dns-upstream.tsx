@@ -1,6 +1,7 @@
 import {
   ActionIcon,
   Alert,
+  Autocomplete,
   Box,
   Button,
   Card,
@@ -16,6 +17,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Iconify } from "@/components/iconify";
+import { DNS_UPSTREAMS } from "@/features/const";
 import { useUpdateDNSUpstream } from "../hooks";
 import type { $DNSUpstream } from "../types";
 
@@ -81,10 +83,11 @@ export const UpdateDNSUpstream = ({ children, item }: $UpdateDNSUpstream) => {
               {form.getValues().servers?.map((_, index) => (
                 <Stack key={index}>
                   <Group gap={10} align="flex-start">
-                    <TextInput
+                    <Autocomplete
                       placeholder="Server"
                       {...form.getInputProps(`servers.${index}.server`)}
                       key={form.key(`servers.${index}.server`)}
+                      data={DNS_UPSTREAMS}
                       withAsterisk
                       flex={1}
                     />
