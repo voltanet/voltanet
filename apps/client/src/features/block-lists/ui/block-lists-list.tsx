@@ -7,15 +7,15 @@ import { BlockListSkeleton } from "./block-list-skeleton";
 import { CreateBlockList } from "./create-block-list";
 
 export const BlockListList = () => {
-  const { data, isLoading, error, refetch } = useBlockLists();
+  const { data, isFetching, error, refetch } = useBlockLists();
 
   if (error) throw error;
 
   return (
     <Stack>
-      <Controls loading={isLoading} refetch={() => void refetch()} />
+      <Controls loading={isFetching} refetch={() => void refetch()} />
 
-      {data?.items.length === 0 ? (
+      {!isFetching && data?.items.length === 0 ? (
         <Card p={5}>
           <Paper py={50} withBorder>
             <EmptyState
@@ -32,7 +32,7 @@ export const BlockListList = () => {
         </Card>
       ) : (
         <SimpleGrid cols={{ base: 1, "600px": 2 }} type="container">
-          {isLoading && [...Array(4)].map((_, index) => <BlockListSkeleton key={index} />)}
+          {isFetching && [...Array(4)].map((_, index) => <BlockListSkeleton key={index} />)}
           {data?.items.map((item) => (
             <BlockListCard key={item.id} item={item} />
           ))}
@@ -40,7 +40,7 @@ export const BlockListList = () => {
       )}
 
       <Group>
-        <Text hidden={isLoading}>
+        <Text hidden={isFetching}>
           {data?.found || 0} matches of {data?.total || 0} total.
         </Text>
         <div style={{ flex: 1 }} />

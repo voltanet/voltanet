@@ -7,14 +7,14 @@ import { AccessControlSkeleton } from "./access-control-skeleton";
 import { CreateAccessControl } from "./create-access-control";
 
 export const AccessControlList = () => {
-  const { data, isLoading, error, refetch } = useAccessControls();
+  const { data, isFetching, error, refetch } = useAccessControls();
 
   if (error) throw error;
 
   return (
     <Stack>
-      <Controls loading={isLoading} refetch={() => void refetch()} />
-      {data?.items.length === 0 ? (
+      <Controls loading={isFetching} refetch={() => void refetch()} />
+      {!isFetching && data?.items.length === 0 ? (
         <Card p={5}>
           <Paper py={50} withBorder>
             <EmptyState
@@ -31,14 +31,14 @@ export const AccessControlList = () => {
         </Card>
       ) : (
         <SimpleGrid cols={{ base: 1, "600px": 2 }} type="container">
-          {isLoading && [...Array(4)].map((_, index) => <AccessControlSkeleton key={index} />)}
+          {isFetching && [...Array(4)].map((_, index) => <AccessControlSkeleton key={index} />)}
           {data?.items.map((item) => (
             <AccessControlCard key={item.id} item={item} />
           ))}
         </SimpleGrid>
       )}
       <Group>
-        <Text hidden={isLoading}>
+        <Text hidden={isFetching}>
           {data?.found || 0} matches of {data?.total || 0} total.
         </Text>
         <div style={{ flex: 1 }} />

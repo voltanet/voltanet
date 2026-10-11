@@ -7,15 +7,15 @@ import { DNSRewriteCard } from "./dns-rewrite-card";
 import { DNSRewriteSkeleton } from "./dns-rewrite-skeleton";
 
 export const DNSRewriteList = () => {
-  const { data, isLoading, error, refetch } = useDNSRewrites();
+  const { data, isFetching, error, refetch } = useDNSRewrites();
 
   if (error) throw error;
 
   return (
     <Stack>
-      <Controls loading={isLoading} refetch={() => void refetch()} />
+      <Controls loading={isFetching} refetch={() => void refetch()} />
 
-      {data?.items.length === 0 ? (
+      {!isFetching && data?.items.length === 0 ? (
         <Card p={5}>
           <Paper py={50} withBorder>
             <EmptyState
@@ -32,7 +32,7 @@ export const DNSRewriteList = () => {
         </Card>
       ) : (
         <SimpleGrid cols={{ base: 1, "600px": 2 }} type="container">
-          {isLoading && [...Array(4)].map((_, index) => <DNSRewriteSkeleton key={index} />)}
+          {isFetching && [...Array(4)].map((_, index) => <DNSRewriteSkeleton key={index} />)}
           {data?.items.map((item) => (
             <DNSRewriteCard key={item.id} item={item} />
           ))}
@@ -40,7 +40,7 @@ export const DNSRewriteList = () => {
       )}
 
       <Group>
-        <Text hidden={isLoading}>
+        <Text hidden={isFetching}>
           {data?.found || 0} matches of {data?.total || 0} total.
         </Text>
         <div style={{ flex: 1 }} />

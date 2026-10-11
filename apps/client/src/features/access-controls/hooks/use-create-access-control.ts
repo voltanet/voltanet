@@ -30,7 +30,10 @@ export const useCreateAccessControl = () => {
     },
   });
 
-  const onSubmit = form.onSubmit((values) => mutation.mutate(values));
+  const onSubmit = (e?: React.SyntheticEvent<HTMLFormElement>) => {
+    form.onSubmit((values) => mutation.mutate(values))(e);
+    e?.stopPropagation(); // Picker lock
+  };
 
   return { form: { ...form, onSubmit }, ...mutation };
 };

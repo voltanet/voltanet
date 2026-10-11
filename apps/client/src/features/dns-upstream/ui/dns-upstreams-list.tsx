@@ -7,14 +7,14 @@ import { DNSUpstreamCard } from "./dns-upstream-card";
 import { DNSUpstreamSkeleton } from "./dns-upstream-skeleton";
 
 export const DNSUpstreamList = () => {
-  const { data, isLoading, error, refetch } = useDNSUpstreams();
+  const { data, isFetching, error, refetch } = useDNSUpstreams();
 
   if (error) throw error;
 
   return (
     <Stack>
-      <Controls loading={isLoading} refetch={() => void refetch()} />
-      {data?.items.length === 0 ? (
+      <Controls loading={isFetching} refetch={() => void refetch()} />
+      {!isFetching && data?.items.length === 0 ? (
         <Card p={5}>
           <Paper py={50} withBorder>
             <EmptyState
@@ -31,14 +31,14 @@ export const DNSUpstreamList = () => {
         </Card>
       ) : (
         <SimpleGrid cols={{ base: 1, "600px": 2 }} type="container">
-          {isLoading && [...Array(4)].map((_, index) => <DNSUpstreamSkeleton key={index} />)}
+          {isFetching && [...Array(4)].map((_, index) => <DNSUpstreamSkeleton key={index} />)}
           {data?.items.map((certificate) => (
             <DNSUpstreamCard key={certificate.id} item={certificate} />
           ))}
         </SimpleGrid>
       )}
       <Group>
-        <Text hidden={isLoading}>
+        <Text hidden={isFetching}>
           {data?.found || 0} matches of {data?.total || 0} total.
         </Text>
         <div style={{ flex: 1 }} />
