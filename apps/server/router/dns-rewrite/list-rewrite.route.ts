@@ -25,7 +25,6 @@ export const listRewriteRoute = safeRoute
       const found = await trx.$count(schema.dnsRewrite, where);
 
       const items = await trx.query.dnsRewrite.findMany({
-        columns: { upstreamId: false },
         with: { upstream: { columns: { id: true, name: true } } },
         orderBy: (table, op) => [op[input.direction](table[input.sort])],
         offset: (input.page - 1) * input.limit,

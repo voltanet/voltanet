@@ -3,6 +3,7 @@ import { Controls } from "@/components/controls";
 import { Iconify } from "@/components/iconify";
 import { useBlockLists } from "../hooks";
 import { BlockListCard } from "./block-list-card";
+import { BlockListSkeleton } from "./block-list-skeleton";
 import { CreateBlockList } from "./create-block-list";
 
 export const BlockListList = () => {
@@ -31,6 +32,7 @@ export const BlockListList = () => {
         </Card>
       ) : (
         <SimpleGrid cols={{ base: 1, "600px": 2 }} type="container">
+          {isLoading && [...Array(4)].map((_, index) => <BlockListSkeleton key={index} />)}
           {data?.items.map((item) => (
             <BlockListCard key={item.id} item={item} />
           ))}
