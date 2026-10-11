@@ -8,7 +8,7 @@
     "start": "vite preview --port 3000",
     "format": "biome format --write",
     "check:code": "biome check --write",
-    "check:types": "tsc --noEmit"
+    "check:types": "bun check"
   },
   "dependencies": {
     "@iconify/react": "^6.0.2",

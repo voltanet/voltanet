@@ -9,7 +9,7 @@
     "compile": "bun -b ./scripts/compile.ts",
     "format": "biome format --write",
     "check:code": "biome check --write",
-    "check:types": "tsc --noEmit"
+    "check:types": "bun check"
   },
   "exports": {
     "./api": "./router/client.ts",

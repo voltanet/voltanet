@@ -9,7 +9,7 @@
     "db:studio": "bunx -b drizzle-kit studio",
     "format": "biome format --write",
     "check:code": "biome check --write",
-    "check:types": "tsc --noEmit"
+    "check:types": "bun check"
   },
   "exports": {
     ".": "./database.ts",
